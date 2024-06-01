@@ -252,7 +252,7 @@ p {
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
-  background-image: url("../Images/menubackground.png");
+  background-image: url("Images/menubackground.png");
 }
 .innerItem {
   width: 100px;
@@ -292,7 +292,7 @@ p {
   transform: rotateY(360deg);
 }
 .aboutUS_P {
-  color: black;
+  color: green;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 30px;
   font-size: larger;
