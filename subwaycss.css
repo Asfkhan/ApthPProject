@@ -1,0 +1,312 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+.header {
+  width: 100%;
+  height: 100px;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.head {
+  flex: 1;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  word-spacing: 5px;
+}
+.tab-content {
+  display: none;
+  height: fit-content;
+  justify-content: space-between;
+}
+.tab-content.active {
+  display: block;
+}
+.layer1 {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+.layer2 {
+  margin-left: 15%;
+  margin-right: 15%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+@media screen and (max-width: 500px) {
+  .header {
+    width: 50%;
+    position: relative;
+    background-color: white;
+  }
+  .mainbackground {
+    width: 100%;
+  }
+  .menuitems {
+    width: 50%;
+  }
+  .menuitems2 {
+    padding: 5px;
+    margin: 1%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 1px black;
+  }
+  .Item1 {
+    width: 50%;
+  }
+  .Item2 {
+    width: 50%;
+  }
+  .layer1background {
+    width: 100%;
+  }
+  .layer1 {
+    width: 70%;
+  }
+  .layer2 {
+    width: 50%;
+  }
+
+  .head {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    text-align: center;
+    word-spacing: 1px;
+  }
+  .title {
+    text-align: center;
+    color: white;
+  }
+
+  .title2 {
+    font-size: 2px;
+    text-align: center;
+    color: black;
+  }
+  #CravingMoreID {
+    width: 50%;
+  }
+}
+
+li {
+  color: rgba(46, 46, 167, 0.658);
+  display: inline;
+}
+button {
+  background: none;
+  color: black;
+  border: none;
+}
+
+.TButton {
+  align-self: center;
+  font-size: 30px;
+  background-color: forestgreen;
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.homevideo {
+  text-align: center;
+}
+video {
+  border-radius: 15px;
+  width: 25%;
+  height: auto;
+  position: sticky;
+}
+
+form {
+  text-align: center;
+  background-color: green;
+}
+#notice {
+  left: 40%;
+  color: white;
+  font-style: bold;
+}
+.imp {
+  color: red;
+}
+.content {
+  text-align: center;
+}
+.main {
+  margin-left: 20%;
+  margin-right: 20%;
+  text-align: center;
+}
+input[type="text"],
+[type="number"],
+[type="email"] {
+  border: none;
+  border-radius: 20px;
+  text-align: center;
+}
+input[type="number"]:focus,
+[type="text"]:focus,
+[type="email"]:focus {
+  width: 75%;
+}
+
+.radio {
+  accent-color: green;
+  width: 15px;
+  height: 50px;
+}
+.register {
+  color: greenyellow;
+  border-radius: 15px;
+  text-align: center;
+  background-color: white;
+}
+
+p {
+  text-align: center;
+}
+.footer {
+  color: white;
+  width: 100%;
+  background-color: forestgreen;
+}
+
+.menu_p {
+  font-weight: 900;
+  color: white;
+  margin-left: 10%;
+  padding-top: 25px;
+  font-family: sans-serif;
+  text-align: left;
+}
+
+#omg {
+  color: gold;
+  font: bolder;
+}
+.dialog {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: fit-content;
+  height: 100%;
+  overflow: auto;
+  background-color: transparent;
+}
+.dialog::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+.dialogContent {
+  background-color: white;
+  margin: auto;
+  padding: 20px;
+  border: none;
+  border-radius: 15px;
+  width: 50%;
+  text-align: center;
+}
+.close {
+  float: right;
+  font-size: 50px;
+  font-weight: bold;
+  color: red;
+}
+.close:hover,
+.close:focus {
+  color: darkred;
+  text-decoration: none;
+  cursor: pointer;
+}
+.menuitems {
+  padding: 25px;
+}
+.menuitems2 {
+  padding: 5px;
+  margin: 1%;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px 1px black;
+}
+
+.layer1background {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  background-image: url("../Images/menubackground.png");
+}
+.innerItem {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  border-radius: 20px;
+}
+.Item1 {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  border-radius: 20px;
+}
+.Item2 {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  color: white;
+}
+
+.title2 {
+  text-align: center;
+  color: black;
+}
+
+#CravingMoreID {
+  display: block;
+  margin: 0 auto;
+  transition: 1s;
+}
+
+#CravingMoreID:hover {
+  transform: rotateY(360deg);
+}
+.aboutUS_P {
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 30px;
+  font-size: larger;
+  text-align: left;
+  margin: 40px;
+  padding: 15px;
+  border-radius: 25px;
+  /* box-shadow: 1px 1px 20px 20px forestgreen; */
+}
+section {
+  justify-content: right;
+  text-align: right;
+}
+.aboutIMG {
+  width: 500px;
+  border-radius: 50px;
+}

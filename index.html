@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+	<link rel="stylesheet" type="text/css" href="subwaycss.css">
+
+</head>
+
+<body ng-app="MyApp" ng-controller="MyController">
+	<header>
+		<nav class="head">
+			<ul>
+				<img src="Images\subwayheader.png">
+				<li> <button ng-click="selectTab(1)">Home</button></li>
+				<li> <button ng-click="selectTab(2)">Menu</button></li>
+				<li> <button ng-click="selectTab(3)">AboutUs</button></li>
+				<li> <button ng-click="selectTab(4)" class="TButton"> TALK TO US</button></li>
+			</ul>
+		</nav>
+
+
+	</header>
+
+	<div style="background-image: url('../Images/Lsubway.png');width: 100%;height: 100%; background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover; @media screen and (min-width: 500px) {
+		width: 50%;
+		height: 100%;
+	}" class="tab-content" ng-class="{ active: selectedTab === 1 }">
+
+	</div>
+	<div class="tab-content" ng-class="{ active: selectedTab === 2 }">
+		<div class="mainbackground">
+			<div class="layer1background">
+				<div class="layer1">
+					<p class="menu_p">GOODNESS THAT<br> TASTES LIKE<br>
+						<span id="omg">OH MY GOODNESS!<br>
+						</span>
+						<span>MEET THE GRILLS</span>
+					</p>
+				</div>
+				<div id="firstdialogBox" class="dialog">
+					<div class="dialogContent"><span class="close">&times;</span><br>
+						<img class="innerItem"
+							src="https://subway.in/static/media/BombayGrillDP.86e875d6d6fc0ca04831.webp" /><br>
+						<span>
+							<b>
+								The classic Bombay sandwich in grilled Italian white bread loaded with tomato, cucumber,
+								onion, capsicum, coriander & green chillies chutney and a whole lotta love. <br>
+								Allergens - Contains wheat and milk.
+								<span style="color: greenyellow;">219 g / 443 kcal.</span><br>
+
+							</b>
+						</span>
+					</div>
+
+				</div>
+				<div id="seconddialogBox" class="dialog">
+					<div class="dialogContent"><span class="close">&times;</span></div>
+				</div>
+				<div id="thirddialogBox" class="dialog">
+					<div class="dialogContent">
+						<span class="close">&times;</span>
+					</div>
+
+				</div>
+				<div class="layer1">
+					<div class="menuitems"><img class="Item1" id="first"
+							src="https://subway.in/static/media/BombayGrillDP.86e875d6d6fc0ca04831.webp" /><br><span
+							class="title">Bombay
+							Grill</span></div>
+					<div class="menuitems"><img class="Item1" id="second"
+							src="https://subway.in/static/media/DelhiTikkiDP.1179986289366d6b7a16.webp" /><br><span
+							class="title">Delhi Tadka</span></div>
+					<div class="menuitems"><img class="Item1" id="third"
+							src="https://subway.in/static/media/ThreeCheeseMeltDP.33f90f04a504d2c324b3.webp" />
+						<br><span class="title">Three Cheese Melt</span>
+					</div>
+				</div>
+				<div class="layer1">
+					<div class="menuitems"><img class="Item1"
+							src="https://subway.in/static/media/ChickenKeemsDP.076bc1b9ca1d6c3028fe.webp" /> <br><span
+							class="title">Chicken Keema</span></div>
+					<div class="menuitems"><img class="Item1"
+							src="https://subway.in/static/media/RoastChickenMeltDP.4a2bd50d33283a91ea67.webp" />
+						<br><span class="title">Roasted Chicken Melt</span>
+					</div>
+					<div class="menuitems"><img class="Item1"
+							src="https://subway.in/static/media/Egg&CheeseDP.8ff95c4578be871a8ae4.webp" /> <br><span
+							class="title">Egg n' Cheese</span></div>
+				</div>
+
+				<img id="CravingMoreID" src="Images\CravingMoreEMO.png" />
+
+			</div>
+			<div class="layer1">
+				<p class="menu_p">
+					<span id="omg">Discover Our<br> Signature Sandwitch<br>
+					</span>
+					<span style="color: black; font-weight: bold;">Our Delicious Chef Crafted Recipe</span>
+				</p>
+			</div>
+			<div class="layer2">
+
+				<div class="menuitems2"><img class="Item2"
+						src="https://subway.in/static/media/ChilliCheeseDP.67de354cf250e1ab15aa.webp" /><span
+						class="title2"><b>Chilli Cheese</b></span></div>
+
+				<div class="menuitems2"><img class="Item2"
+						src="https://subway.in/static/media/PaneerAchariDP.3b7ab38d0969fdf9dcb2.webp" /><span
+						class="title2"><b>Paneer Achari</b></span></div>
+
+				<div class="menuitems2"><img class="Item2"
+						src="https://subway.in/static/media/CrunchyMexicanDP.db3d51de8987c302270a.webp" /><span
+						class="title2"><b>Cruncy Mexican</b></span></div>
+
+			</div>
+			<div class="layer2">
+
+				<div class="menuitems2"><img class="Item2"
+						src="https://subway.in/static/media/ChickenTikkaAchariDP.19f5470adb3e770ac4e1.webp" /><span
+						class="title2"><b>Chicken Tikka Achari</b></span></div>
+
+				<div class="menuitems2"><img class="Item2"
+						src="https://subway.in/static/media/PepperChickenDP.1c6ce55cdb2cdf4c00e5.webp" /><span
+						class="title2"><b>Pepper Chicken With Dip</b></span></div>
+
+				<div class="menuitems2"><img class="Item2"
+						src="https://subway.in/static/media/AmericanBBQDP.624675fe9e3883b54416.webp" /><span
+						class="title2"><b>Great American BBQ</b></span></div>
+
+			</div>
+		</div>
+
+	</div>
+	<div class="tab-content" ng-class="{ active: selectedTab === 3 }">
+		<section>
+			<p class="aboutUS_P">
+				We believe that when you eat fresh, you think fresh; and we bring this fresh thinking in all our
+				endeavours. We
+				are committed to innovating better, healthier, high-quality food that delights our customers. We are
+				dedicated
+				to fostering positive impact by providing sustainable livelihoods to our suppliers and meaningful
+				careers to our
+				team.
+			</p>
+			<section>
+				<img src="Images\subwaysandiwtchbrand.png" class="aboutIMG" />
+			</section>
+			<p style="line-height: 40px;" class="aboutUS_P">
+				Eversub India Pvt Limited (EIPL) has the master franchise rights to open and operate HealthyLo
+				restaurants
+				in
+				India, Sri Lanka and Bangladesh. HealthyLo is set to expand freshness and power through the mission of
+				serving
+				healthy, tasty, and fresh food to everyone.
+			</p>
+			<section style="text-align: left;">
+				<img src="Images\subwaysandiwtchbrand2.png" class="aboutIMG" />
+			</section>
+			<p style="line-height: 40px;" class="aboutUS_P">
+				India is the largest market for EIPL and is focussed to expand HealthyLo footprint aggressively. EIPL is
+				a
+				fully
+				owned subsidiary of Culinary Brands Private Limited.
+			</p>
+
+		</section>
+
+	</div>
+	<div class="tab-content" ng-class="{ active: selectedTab === 4 }">
+		<div class="main">
+			<div class="content">
+				<form>
+					<h2 id="notice">Talk to us!</h2><br>
+					<h3>Please share with us below details:</h3><br>
+					<h2>Mobile number:<span class="imp">*<span></h2>
+					<input type="number" placeholder="Mobile Number" required="True">
+					<h2>Name:<span class="imp">*<span></h2>
+					<input type="text" placeholder="Name" required="True">
+					<h2>Email ID:<span class="imp">*<span></h2>
+					<input type="Email" placeholder="Email" required="True">
+					<h2>Do you have your last Order Details:<span class="imp">*</span></h2>
+					<input type="radio" type="radio" name="ans">Yes
+					<input type="radio" type="radio" name="ans">No
+					<h2>Attachment, if any</h2>
+					<input type="submit" value="ClickME" class="register">
+					<div class="footer">
+						<p>All rights reserved. HealthyLo is a Registered Trademark of HealthyLo IP LLC. ©2024 Healthylo
+							IP LLC., and is
+							licensed to Aseef India Private Limited under an exclusive master franchisee arrangement for
+							the territory
+							of the Republic of India.</p>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="homevideo">
+		<video controls autoplay>
+			<source src="videos\homevideo.mp4" type="video/mp4">
+		</video>
+	</div>
+	<script>
+		var app = angular.module('MyApp', [])
+			.controller('MyController', function ($scope) {
+				$scope.selectedTab = 1
+
+				$scope.selectTab = function (tab) {
+					$scope.selectedTab = tab
+				}
+			})
+		var dialogBox1 = document.getElementById("firstdialogBox")
+		var eventLi1 = document.getElementById("first")
+		var closeBtn1 = document.getElementsByClassName("close")[0]
+		eventLi1.onclick = function () {
+			dialogBox1.style.display = "block";
+		}
+		closeBtn1.onclick = function () {
+			dialogBox1.style.display = "none";
+		}
+		var dialogBox2 = document.getElementById("seconddialogBox")
+		var eventLi2 = document.getElementById("second")
+		var closeBtn2 = document.getElementsByClassName("close")[1]
+		eventLi2.onclick = function () {
+			dialogBox2.style.display = "block";
+		}
+		closeBtn2.onclick = function () {
+			dialogBox2.style.display = "none";
+		}
+		var dialogBox3 = document.getElementById("thirddialogBox")
+		var eventLi3 = document.getElementById("third")
+		var closeBtn3 = document.getElementsByClassName("close")[2]
+		eventLi3.onclick = function () {
+			dialogBox3.style.display = "block";
+		}
+		closeBtn3.onclick = function () {
+			dialogBox3.style.display = "none";
+		}
+	</script>
+</body>
+
+</html>
