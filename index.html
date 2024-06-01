@@ -8,10 +8,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
 	<link rel="stylesheet" type="text/css" href="subwaycss.css">
-
 </head>
 
 <body ng-app="MyApp" ng-controller="MyController">
+
 	<header>
 		<nav class="head">
 			<ul>
@@ -52,7 +52,7 @@
 							<b>
 								The classic Bombay sandwich in grilled Italian white bread loaded with tomato, cucumber,
 								onion, capsicum, coriander & green chillies chutney and a whole lotta love. <br>
-								Allergens - Contains wheat and milk.
+								Allergens - Contains wheat and milk. <br>
 								<span style="color: greenyellow;">219 g / 443 kcal.</span><br>
 
 							</b>
@@ -61,11 +61,80 @@
 
 				</div>
 				<div id="seconddialogBox" class="dialog">
-					<div class="dialogContent"><span class="close">&times;</span></div>
+					<div class="dialogContent"><span class="close">&times;</span><br>
+						<img class="innerItem"
+							src="https://subway.in/static/media/DelhiTikkiDP.1179986289366d6b7a16.webp" /><br>
+						Grilled Italian white bread stuffed with flavourful aloo patty, onion, chilli mayo and creamy
+						<br>
+						cheezy sauce for a desi twist. <br>
+						Allergens - Contains wheat, milk, barley, oats and soy. <br>
+						<span style="color: greenyellow;">192 g / 535 kcal.</span><br>
+					</div>
 				</div>
 				<div id="thirddialogBox" class="dialog">
 					<div class="dialogContent">
-						<span class="close">&times;</span>
+						<span class="close">&times;</span><br>
+						<img class="innerItem"
+							src="https://subway.in/static/media/ThreeCheeseMeltDP.33f90f04a504d2c324b3.webp" /><br>
+						<span>
+							<b>
+								Have a cheese blast with Three Cheese Grill sandwich. Freshly grilled Italian white
+								bread stuffed with potato patty, lettuce, onion, capsicum and jalapenos, topped with
+								oregano spice mix and the cheesy trio of cheese slice, liquid cheese and mozzarella.
+								<br>
+								Allergens - Contains wheat, milk, barley, oats and soy. <br>
+								<span style="color: greenyellow;">244g/633 Kcal.</span><br>
+							</b>
+						</span>
+					</div>
+
+				</div>
+				<div id="fourthdialogBox" class="dialog">
+					<div class="dialogContent">
+						<span class="close">&times;</span><br>
+						<img class="innerItem"
+							src="https://subway.in/static/media/ChickenKeemsDP.076bc1b9ca1d6c3028fe.webp" /><br>
+						<span>
+							<b>
+								Juicy chicken keema in grilled Italian white bread loaded with onion, chilli mayo and
+								creamy cheezy sauce. <br>
+								Allergens - Contains wheat, milk, Soy, barley, oats, and nuts. <br>
+								<span style="color: greenyellow;">179 g / 508 kcal.</span><br>
+							</b>
+						</span>
+					</div>
+
+				</div>
+				<div id="fifthdialogBox" class="dialog">
+					<div class="dialogContent">
+						<span class="close">&times;</span><br>
+						<img class="innerItem"
+							src="https://subway.in/static/media/RoastChickenMeltDP.4a2bd50d33283a91ea67.webp" /><br>
+						<span>
+							<b>
+								Smokin' pepper chicken strips stuffed in grilled Italian white bread topped with
+								lettuce, onion, jalapenos, honey mustard, oozing cheese slice and creamy cheezy sauce.
+								Allergens - Contains wheat, milk, Soy, barley, oats and nuts. <br>
+								<span style="color: greenyellow;">202 g / 506 kcal.</span><br>
+							</b>
+						</span>
+					</div>
+
+				</div>
+				<div id="sixthdialogBox" class="dialog">
+					<div class="dialogContent">
+						<span class="close">&times;</span><br>
+						<img class="innerItem"
+							src="https://subway.in/static/media/Egg&CheeseDP.8ff95c4578be871a8ae4.webp" /><br>
+						<span>
+							<b>
+								The classic all-day breakfast. Eggwich is a freshly grilled Italian white bread stuffed
+								with potato omelette, capsicum, onion, topped with oregano spice mix, chilli mayo,
+								liquid cheese, mozzarella and cheese slice for some extra oozing cheesiness. <br>
+								Allergens - Contains wheat, milk, egg, barley, oats and soy. <br>
+								<span style="color: greenyellow;">259 g / 683 kcal.</span><br>
+							</b>
+						</span>
 					</div>
 
 				</div>
@@ -83,14 +152,14 @@
 					</div>
 				</div>
 				<div class="layer1">
-					<div class="menuitems"><img class="Item1"
+					<div class="menuitems"><img class="Item1" id="fourth"
 							src="https://subway.in/static/media/ChickenKeemsDP.076bc1b9ca1d6c3028fe.webp" /> <br><span
 							class="title">Chicken Keema</span></div>
-					<div class="menuitems"><img class="Item1"
+					<div class="menuitems"><img class="Item1" id="fifth"
 							src="https://subway.in/static/media/RoastChickenMeltDP.4a2bd50d33283a91ea67.webp" />
 						<br><span class="title">Roasted Chicken Melt</span>
 					</div>
-					<div class="menuitems"><img class="Item1"
+					<div class="menuitems"><img class="Item1" id="sixth"
 							src="https://subway.in/static/media/Egg&CheeseDP.8ff95c4578be871a8ae4.webp" /> <br><span
 							class="title">Egg n' Cheese</span></div>
 				</div>
@@ -105,32 +174,129 @@
 					<span style="color: black; font-weight: bold;">Our Delicious Chef Crafted Recipe</span>
 				</p>
 			</div>
+			<div id="seventhdialogBox" class="dialog">
+				<div class="dialogContent">
+					<span class="close">&times;</span><br>
+					<img class="innerItem"
+						src="https://subway.in/static/media/ChilliCheeseDP.67de354cf250e1ab15aa.webp" /><br>
+					<span>
+						<b>
+							Multigrain, 3-cheese toasted sub with herby aloo patty, jalapeño, onion & capsicum with
+							chilli mayo. <br>
+							Allergens - Contains wheat, rye, barley, oats, milk & soy. <br>
+							<span style="color: greenyellow;">284 g/ 678 kcal.</span><br>
+						</b>
+					</span>
+				</div>
+
+			</div>
+			<div id="eigthdialogBox" class="dialog">
+				<div class="dialogContent">
+					<span class="close">&times;</span><br>
+					<img class="innerItem"
+						src="https://subway.in/static/media/PaneerAchariDP.3b7ab38d0969fdf9dcb2.webp" /><br>
+					<span>
+						<b>
+							Multigrain toasted sub with chunks of paneer, achari mayo, pickled onion, capsicum, tomato
+							and chilli mayo. <br>
+							Allergens - Contains wheat, rye, barley, oats, milk & soy. <br>
+							<span style="color: greenyellow;">240 g/ 589 kcal.</span><br>
+						</b>
+					</span>
+				</div>
+
+			</div>
+			<div id="ninthdialogBox" class="dialog">
+				<div class="dialogContent">
+					<span class="close">&times;</span><br>
+					<img class="innerItem"
+						src="https://subway.in/static/media/CrunchyMexicanDP.db3d51de8987c302270a.webp" /><br>
+					<span>
+						<b>
+							Multigrain toasted sub with Mexican bean patty, tomato, capsicum, onion, olives, jalapeño,
+							southwest chipotle sauce & crunchy nachos. <br>
+							Allergens - Contains wheat, rye, barley, oats, milk & soy. <br>
+							<span style="color: greenyellow;">295 g/ 702 kcal.</span><br>
+						</b>
+					</span>
+				</div>
+
+			</div>
+			<div id="tenthdialogBox" class="dialog">
+				<div class="dialogContent">
+					<span class="close">&times;</span><br>
+					<img class="innerItem"
+						src="https://subway.in/static/media/ChickenTikkaAchariDP.19f5470adb3e770ac4e1.webp" /><br>
+					<span>
+						<b>
+							Multigrain toasted sub with Tandoori Chicken, achari mayo, pickled onion, capsicum and
+							tomato, topped with chilli mayo for an extra kick. <br>
+							Allergens - Contains wheat, rye, barley, oats, milk & soy. <br>
+							<span style="color: greenyellow;">240 g/ 520 kcal.</span><br>
+						</b>
+					</span>
+				</div>
+
+			</div>
+			<div id="eleventhdialogBox" class="dialog">
+				<div class="dialogContent">
+					<span class="close">&times;</span><br>
+					<img class="innerItem"
+						src="https://subway.in/static/media/PepperChickenDP.1c6ce55cdb2cdf4c00e5.webp" /><br>
+					<span>
+						<b>
+							A flavourful toasted sub loaded with capsicum, olives & jalapeños. This warm sandwich has
+							juicy black pepper chicken paired with creamy Italian sauce and white Italian bread as the
+							base. <br>
+							Allergens - Contains wheat, rye, barley, oats, milk, nuts & soy. <br>
+							<span style="color: greenyellow;">189 g/359 kcal.</span><br>
+						</b>
+					</span>
+				</div>
+
+			</div>
+			<div id="twelfthdialogBox" class="dialog">
+				<div class="dialogContent">
+					<span class="close">&times;</span><br>
+					<img class="innerItem"
+						src="https://subway.in/static/media/AmericanBBQDP.624675fe9e3883b54416.webp" /><br>
+					<span>
+						<b>
+							Multigrain toasted sub with chicken pepperoni, chicken slice, smoked chicken strips, onion,
+							pickle, capsicum, eggless mayo and barbecue sauce. <br>
+							Allergens - Contains wheat, rye, barley, oats, milk & soy. <br>
+							<span style="color: greenyellow;">253 g/ 539 kcal.</span><br>
+						</b>
+					</span>
+				</div>
+
+			</div>
 			<div class="layer2">
 
-				<div class="menuitems2"><img class="Item2"
+				<div class="menuitems2"><img class="Item2" id="seventh"
 						src="https://subway.in/static/media/ChilliCheeseDP.67de354cf250e1ab15aa.webp" /><span
 						class="title2"><b>Chilli Cheese</b></span></div>
 
-				<div class="menuitems2"><img class="Item2"
+				<div class="menuitems2"><img class="Item2" id="eigth"
 						src="https://subway.in/static/media/PaneerAchariDP.3b7ab38d0969fdf9dcb2.webp" /><span
 						class="title2"><b>Paneer Achari</b></span></div>
 
-				<div class="menuitems2"><img class="Item2"
+				<div class="menuitems2"><img class="Item2" id="ninth"
 						src="https://subway.in/static/media/CrunchyMexicanDP.db3d51de8987c302270a.webp" /><span
 						class="title2"><b>Cruncy Mexican</b></span></div>
 
 			</div>
 			<div class="layer2">
 
-				<div class="menuitems2"><img class="Item2"
+				<div class="menuitems2"><img class="Item2" id="tenth"
 						src="https://subway.in/static/media/ChickenTikkaAchariDP.19f5470adb3e770ac4e1.webp" /><span
 						class="title2"><b>Chicken Tikka Achari</b></span></div>
 
-				<div class="menuitems2"><img class="Item2"
+				<div class="menuitems2"><img class="Item2" id="eleventh"
 						src="https://subway.in/static/media/PepperChickenDP.1c6ce55cdb2cdf4c00e5.webp" /><span
 						class="title2"><b>Pepper Chicken With Dip</b></span></div>
 
-				<div class="menuitems2"><img class="Item2"
+				<div class="menuitems2"><img class="Item2" id="twelfth"
 						src="https://subway.in/static/media/AmericanBBQDP.624675fe9e3883b54416.webp" /><span
 						class="title2"><b>Great American BBQ</b></span></div>
 
@@ -204,47 +370,13 @@
 	</div>
 	</div>
 	<div class="homevideo">
-		<video controls autoplay>
+		<video controls autoplay muted loop>
 			<source src="videos/homevideo.mp4" type="video/mp4">
+			Your Browser Does not Support the Tag.
 		</video>
 	</div>
-	<script>
-		var app = angular.module('MyApp', [])
-			.controller('MyController', function ($scope) {
-				$scope.selectedTab = 1
+	<script src="index.js"></script>
 
-				$scope.selectTab = function (tab) {
-					$scope.selectedTab = tab
-				}
-			})
-		var dialogBox1 = document.getElementById("firstdialogBox")
-		var eventLi1 = document.getElementById("first")
-		var closeBtn1 = document.getElementsByClassName("close")[0]
-		eventLi1.onclick = function () {
-			dialogBox1.style.display = "block";
-		}
-		closeBtn1.onclick = function () {
-			dialogBox1.style.display = "none";
-		}
-		var dialogBox2 = document.getElementById("seconddialogBox")
-		var eventLi2 = document.getElementById("second")
-		var closeBtn2 = document.getElementsByClassName("close")[1]
-		eventLi2.onclick = function () {
-			dialogBox2.style.display = "block";
-		}
-		closeBtn2.onclick = function () {
-			dialogBox2.style.display = "none";
-		}
-		var dialogBox3 = document.getElementById("thirddialogBox")
-		var eventLi3 = document.getElementById("third")
-		var closeBtn3 = document.getElementsByClassName("close")[2]
-		eventLi3.onclick = function () {
-			dialogBox3.style.display = "block";
-		}
-		closeBtn3.onclick = function () {
-			dialogBox3.style.display = "none";
-		}
-	</script>
 </body>
 
 </html>
