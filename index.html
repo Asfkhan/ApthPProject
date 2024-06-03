@@ -7,7 +7,7 @@
 	<title>Home</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
-	<link rel="stylesheet" type="text/css" href="subwaycss.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body ng-app="MyApp" ng-controller="MyController">
@@ -19,7 +19,10 @@
 				<li> <button ng-click="selectTab(1)">Home</button></li>
 				<li> <button ng-click="selectTab(2)">Menu</button></li>
 				<li> <button ng-click="selectTab(3)">AboutUs</button></li>
-				<li> <button ng-click="selectTab(4)" class="TButton"> TALK TO US</button></li>
+				<li> <button ng-click="selectTab(4)" class="TButton"> TALK
+						TO US</button></li>
+				<li><button ng-click="selectTab(5)" id="mycart" onmouseover="glow()" onmouseout="stopglow()">My Cart
+						(<span id="cart-count">0</span>)</button></li>
 			</ul>
 		</nav>
 
@@ -46,7 +49,7 @@
 				</div>
 				<div id="firstdialogBox" class="dialog">
 					<div class="dialogContent"><span class="close">&times;</span><br>
-						<img class="innerItem"
+						<img class="innerItem" id="bombayGrillimgID"
 							src="https://subway.in/static/media/BombayGrillDP.86e875d6d6fc0ca04831.webp" /><br>
 						<span>
 							<b>
@@ -54,9 +57,6 @@
 								onion, capsicum, coriander & green chillies chutney and a whole lotta love. <br>
 								Allergens - Contains wheat and milk. <br>
 								<span style="color: greenyellow;">219 g / 443 kcal.</span><br>
-								<button id="minusBtn1">-</button>
-								<span id="itemCount1">0</span>
-								<button id="plusBtn1">+</button> <br>
 								<button id="bombayGrill" class="addToCartBtn">Add to Cart</button>
 
 							</b>
@@ -66,23 +66,20 @@
 				</div>
 				<div id="seconddialogBox" class="dialog">
 					<div class="dialogContent"><span class="close">&times;</span><br>
-						<img class="innerItem"
+						<img class="innerItem" id="delhiTikkiDPimgID"
 							src="https://subway.in/static/media/DelhiTikkiDP.1179986289366d6b7a16.webp" /><br>
 						Grilled Italian white bread stuffed with flavourful aloo patty, onion, chilli mayo and creamy
 						<br>
 						cheezy sauce for a desi twist. <br>
 						Allergens - Contains wheat, milk, barley, oats and soy. <br>
 						<span style="color: greenyellow;">192 g / 535 kcal.</span><br>
-						<button id="minusBtn2">-</button>
-						<span id="itemCount2">0</span>
-						<button id="plusBtn2">+</button> <br>
 						<button id="delhiTikkiDP" class="addToCartBtn">Add to Cart</button>
 					</div>
 				</div>
 				<div id="thirddialogBox" class="dialog">
 					<div class="dialogContent">
 						<span class="close">&times;</span><br>
-						<img class="innerItem"
+						<img class="innerItem" id="threeCheeseMeltDPimgID"
 							src="https://subway.in/static/media/ThreeCheeseMeltDP.33f90f04a504d2c324b3.webp" /><br>
 						<span>
 							<b>
@@ -92,9 +89,6 @@
 								<br>
 								Allergens - Contains wheat, milk, barley, oats and soy. <br>
 								<span style="color: greenyellow;">244g/633 Kcal.</span><br>
-								<button id="minusBtn3">-</button>
-								<span id="itemCount3">0</span>
-								<button id="plusBtn3">+</button> <br>
 								<button id="threeCheeseMeltDP" class="addToCartBtn">Add to Cart</button>
 							</b>
 						</span>
@@ -104,7 +98,7 @@
 				<div id="fourthdialogBox" class="dialog">
 					<div class="dialogContent">
 						<span class="close">&times;</span><br>
-						<img class="innerItem"
+						<img class="innerItem" id="chickenKeemsDPimgID"
 							src="https://subway.in/static/media/ChickenKeemsDP.076bc1b9ca1d6c3028fe.webp" /><br>
 						<span>
 							<b>
@@ -112,9 +106,6 @@
 								creamy cheezy sauce. <br>
 								Allergens - Contains wheat, milk, Soy, barley, oats, and nuts. <br>
 								<span style="color: greenyellow;">179 g / 508 kcal.</span><br>
-								<button id="minusBtn4">-</button>
-								<span id="itemCount4">0</span>
-								<button id="plusBtn4">+</button> <br>
 								<button id="chickenKeemsDP" class="addToCartBtn">Add to Cart</button>
 							</b>
 						</span>
@@ -124,7 +115,7 @@
 				<div id="fifthdialogBox" class="dialog">
 					<div class="dialogContent">
 						<span class="close">&times;</span><br>
-						<img class="innerItem"
+						<img class="innerItem" id="roastChickenMeltDPimgID"
 							src="https://subway.in/static/media/RoastChickenMeltDP.4a2bd50d33283a91ea67.webp" /><br>
 						<span>
 							<b>
@@ -132,9 +123,6 @@
 								lettuce, onion, jalapenos, honey mustard, oozing cheese slice and creamy cheezy sauce.
 								Allergens - Contains wheat, milk, Soy, barley, oats and nuts. <br>
 								<span style="color: greenyellow;">202 g / 506 kcal.</span><br>
-								<button id="minusBtn5">-</button>
-								<span id="itemCount5">0</span>
-								<button id="plusBtn5">+</button> <br>
 								<button id="roastChickenMeltDP" class="addToCartBtn">Add to Cart</button>
 							</b>
 						</span>
@@ -144,7 +132,7 @@
 				<div id="sixthdialogBox" class="dialog">
 					<div class="dialogContent">
 						<span class="close">&times;</span><br>
-						<img class="innerItem"
+						<img class="innerItem" id="eggnCheeseDPimgID"
 							src="https://subway.in/static/media/Egg&CheeseDP.8ff95c4578be871a8ae4.webp" /><br>
 						<span>
 							<b>
@@ -153,9 +141,6 @@
 								liquid cheese, mozzarella and cheese slice for some extra oozing cheesiness. <br>
 								Allergens - Contains wheat, milk, egg, barley, oats and soy. <br>
 								<span style="color: greenyellow;">259 g / 683 kcal.</span><br>
-								<button id="minusBtn6">-</button>
-								<span id="itemCount6">0</span>
-								<button id="plusBtn6">+</button> <br>
 								<button id="eggnCheeseDP" class="addToCartBtn">Add to Cart</button>
 							</b>
 						</span>
@@ -201,7 +186,7 @@
 			<div id="seventhdialogBox" class="dialog">
 				<div class="dialogContent">
 					<span class="close">&times;</span><br>
-					<img class="innerItem"
+					<img class="innerItem" id="chilliCheeseDPimgID"
 						src="https://subway.in/static/media/ChilliCheeseDP.67de354cf250e1ab15aa.webp" /><br>
 					<span>
 						<b>
@@ -209,9 +194,6 @@
 							chilli mayo. <br>
 							Allergens - Contains wheat, rye, barley, oats, milk & soy. <br>
 							<span style="color: greenyellow;">284 g/ 678 kcal.</span><br>
-							<button id="minusBtn7">-</button>
-							<span id="itemCount7">0</span>
-							<button id="plusBtn7">+</button> <br>
 							<button id="chilliCheeseDP" class="addToCartBtn">Add to Cart</button>
 						</b>
 					</span>
@@ -221,7 +203,7 @@
 			<div id="eigthdialogBox" class="dialog">
 				<div class="dialogContent">
 					<span class="close">&times;</span><br>
-					<img class="innerItem"
+					<img class="innerItem" id="paneerAchariDPimgID"
 						src="https://subway.in/static/media/PaneerAchariDP.3b7ab38d0969fdf9dcb2.webp" /><br>
 					<span>
 						<b>
@@ -229,9 +211,6 @@
 							and chilli mayo. <br>
 							Allergens - Contains wheat, rye, barley, oats, milk & soy. <br>
 							<span style="color: greenyellow;">240 g/ 589 kcal.</span><br>
-							<button id="minusBtn8">-</button>
-							<span id="itemCount8">0</span>
-							<button id="plusBtn8">+</button> <br>
 							<button id="paneerAchariDP" class="addToCartBtn">Add to Cart</button>
 						</b>
 					</span>
@@ -241,7 +220,7 @@
 			<div id="ninthdialogBox" class="dialog">
 				<div class="dialogContent">
 					<span class="close">&times;</span><br>
-					<img class="innerItem"
+					<img class="innerItem" id="crunchyMexicanDPimgID"
 						src="https://subway.in/static/media/CrunchyMexicanDP.db3d51de8987c302270a.webp" /><br>
 					<span>
 						<b>
@@ -249,9 +228,6 @@
 							southwest chipotle sauce & crunchy nachos. <br>
 							Allergens - Contains wheat, rye, barley, oats, milk & soy. <br>
 							<span style="color: greenyellow;">295 g/ 702 kcal.</span><br>
-							<button id="minusBtn9">-</button>
-							<span id="itemCount9">0</span>
-							<button id="plusBtn9">+</button> <br>
 							<button id="crunchyMexicanDP" class="addToCartBtn">Add to Cart</button>
 						</b>
 					</span>
@@ -261,7 +237,7 @@
 			<div id="tenthdialogBox" class="dialog">
 				<div class="dialogContent">
 					<span class="close">&times;</span><br>
-					<img class="innerItem"
+					<img class="innerItem" id="chickenTikkaAchariDPimgID"
 						src="https://subway.in/static/media/ChickenTikkaAchariDP.19f5470adb3e770ac4e1.webp" /><br>
 					<span>
 						<b>
@@ -269,9 +245,6 @@
 							tomato, topped with chilli mayo for an extra kick. <br>
 							Allergens - Contains wheat, rye, barley, oats, milk & soy. <br>
 							<span style="color: greenyellow;">240 g/ 520 kcal.</span><br>
-							<button id="minusBtn10">-</button>
-							<span id="itemCount10">0</span>
-							<button id="plusBtn10">+</button> <br>
 							<button id="chickenTikkaAchariDP" class="addToCartBtn">Add to Cart</button>
 						</b>
 					</span>
@@ -281,7 +254,7 @@
 			<div id="eleventhdialogBox" class="dialog">
 				<div class="dialogContent">
 					<span class="close">&times;</span><br>
-					<img class="innerItem"
+					<img class="innerItem" id="pepperChickenDPimgID"
 						src="https://subway.in/static/media/PepperChickenDP.1c6ce55cdb2cdf4c00e5.webp" /><br>
 					<span>
 						<b>
@@ -290,9 +263,6 @@
 							base. <br>
 							Allergens - Contains wheat, rye, barley, oats, milk, nuts & soy. <br>
 							<span style="color: greenyellow;">189 g/359 kcal.</span><br>
-							<button id="minusBtn11">-</button>
-							<span id="itemCount11">0</span>
-							<button id="plusBtn11">+</button> <br>
 							<button id="pepperChickenDP" class="addToCartBtn">Add to Cart</button>
 						</b>
 					</span>
@@ -302,7 +272,7 @@
 			<div id="twelfthdialogBox" class="dialog">
 				<div class="dialogContent">
 					<span class="close">&times;</span><br>
-					<img class="innerItem"
+					<img class="innerItem" id="americanBBQDPimgID"
 						src="https://subway.in/static/media/AmericanBBQDP.624675fe9e3883b54416.webp" /><br>
 					<span>
 						<b>
@@ -310,9 +280,6 @@
 							pickle, capsicum, eggless mayo and barbecue sauce. <br>
 							Allergens - Contains wheat, rye, barley, oats, milk & soy. <br>
 							<span style="color: greenyellow;">253 g/ 539 kcal.</span><br>
-							<button id="minusBtn12">-</button>
-							<span id="itemCount12">0</span>
-							<button id="plusBtn12">+</button> <br>
 							<button id="americanBBQDP" class="addToCartBtn">Add to Cart</button>
 						</b>
 					</span>
@@ -416,6 +383,13 @@
 			</div>
 		</div>
 	</div>
+	<div class="tab-content" ng-class="{ active: selectedTab === 5 }">
+		<div id="cart-section">
+			<h2>My Cart</h2>
+			<div id="cart-items"></div>
+			<div id="total-price">Total: Rs 0</div>
+			<button class="addToCartBtn">Check out</button>
+		</div>
 	</div>
 	<div class="homevideo">
 		<video controls autoplay muted loop>
