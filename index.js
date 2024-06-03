@@ -1,3 +1,9 @@
+function glow() {
+  document.getElementById("mycart").style.backgroundColor = "orange";
+}
+function stopglow() {
+  document.getElementById("mycart").style.backgroundColor = "yellowgreen";
+}
 var app = angular
   .module("MyApp", [])
   .controller("MyController", function ($scope) {
@@ -116,285 +122,919 @@ closeBtn12.onclick = function () {
   dialogBox12.style.display = "none";
 };
 
-document.addEventListener("DOMContentLoaded", function () {
-  let itemCount1 = 0;
-
-  const itemCountSpan1 = document.getElementById("itemCount1");
-  const minusBtn1 = document.getElementById("minusBtn1");
-  const plusBtn1 = document.getElementById("plusBtn1");
-  const bombayGrill = document.getElementById("bombayGrill");
-  minusBtn1.addEventListener("click", function () {
-    if (itemCount1 > 0) {
-      itemCount1--;
-      itemCountSpan1.textContent = itemCount1;
-    }
-  });
-
-  plusBtn1.addEventListener("click", function () {
-    itemCount1++;
-    itemCountSpan1.textContent = itemCount1;
-  });
-
-  bombayGrill.addEventListener("click", function () {
-    alert(`Added ${itemCount1} items to cart`);
-  });
-});
-//#red
-document.addEventListener("DOMContentLoaded", function () {
-  let itemCount2 = 0;
-  const itemCountSpan2 = document.getElementById("itemCount2");
-  const minusBtn2 = document.getElementById("minusBtn2");
-  const plusBtn2 = document.getElementById("plusBtn2");
-  const delhiTikkiDP = document.getElementById("delhiTikkiDP");
-  minusBtn2.addEventListener("click", function () {
-    if (itemCount2 > 0) {
-      itemCount2--;
-      itemCountSpan2.textContent = itemCount2;
-    }
-  });
-
-  plusBtn2.addEventListener("click", function () {
-    itemCount2++;
-    itemCountSpan2.textContent = itemCount2;
-  });
-  delhiTikkiDP.addEventListener("click", function () {
-    alert(`Added ${itemCount2} items to cart`);
-  }); //#
-});
-//#green
-document.addEventListener("DOMContentLoaded", function () {
-  let itemCount3 = 0;
-  const itemCountSpan3 = document.getElementById("itemCount3");
-  const minusBtn3 = document.getElementById("minusBtn3");
-  const plusBtn3 = document.getElementById("plusBtn3");
-  const threeCheeseMeltDP = document.getElementById("threeCheeseMeltDP");
-  minusBtn3.addEventListener("click", function () {
-    if (itemCount3 > 0) {
-      itemCount3--;
-      itemCountSpan3.textContent = itemCount3;
-    }
-  });
-
-  plusBtn3.addEventListener("click", function () {
-    itemCount3++;
-    itemCountSpan3.textContent = itemCount3;
-  });
-  threeCheeseMeltDP.addEventListener("click", function () {
-    alert(`Added ${itemCount3} items to cart`);
-  }); //#
-});
-//#blue
-document.addEventListener("DOMContentLoaded", function () {
-  let itemCount4 = 0;
-  const itemCountSpan4 = document.getElementById("itemCount4");
-  const minusBtn4 = document.getElementById("minusBtn4");
-  const plusBtn4 = document.getElementById("plusBtn4");
-  const chickenKeemsDP = document.getElementById("chickenKeemsDP");
-  minusBtn4.addEventListener("click", function () {
-    if (itemCount4 > 0) {
-      itemCount4--;
-      itemCountSpan4.textContent = itemCount4;
-    }
-  });
-
-  plusBtn4.addEventListener("click", function () {
-    itemCount4++;
-    itemCountSpan4.textContent = itemCount4;
-  });
-
-  chickenKeemsDP.addEventListener("click", function () {
-    alert(`Added ${itemCount4} items to cart`);
-  });
-  //#
-});
-//#magenta
-document.addEventListener("DOMContentLoaded", function () {
-  let itemCount5 = 0
-  const roastChickenMeltDP = document.getElementById("roastChickenMeltDP");
-  const itemCountSpan5 = document.getElementById("itemCount5");
-  const minusBtn5 = document.getElementById("minusBtn5");
-  const plusBtn5 = document.getElementById("plusBtn5");
-  minusBtn5.addEventListener("click", function () {
-    if (itemCount5 > 0) {
-      itemCount5--;
-      itemCountSpan5.textContent = itemCount5;
-    }
-  });
-
-  plusBtn5.addEventListener("click", function () {
-    itemCount5++;
-    itemCountSpan5.textContent = itemCount5;
-  });
-
-  roastChickenMeltDP.addEventListener("click", function () {
-    alert(`Added ${itemCount5} items to cart`);
-  });
-  //#
-});
-//#yellow
-document.addEventListener("DOMContentLoaded", function () {
-  let itemCount6 = 0;
-  const eggnCheeseDP = document.getElementById("eggnCheeseDP");
-  const itemCountSpan6 = document.getElementById("itemCount6");
-  const minusBtn6 = document.getElementById("minusBtn6");
-  const plusBtn6 = document.getElementById("plusBtn6");
-  minusBtn6.addEventListener("click", function () {
-    if (itemCount6 > 0) {
-      itemCount6--;
-      itemCountSpan6.textContent = itemCount6;
-    }
-  });
-
-  plusBtn6.addEventListener("click", function () {
-    itemCount6++;
-    itemCountSpan6.textContent = itemCount6;
-  });
-
-  eggnCheeseDP.addEventListener("click", function () {
-    alert(`Added ${itemCount6} items to cart`);
-  });
-  //#
-});
-//#brown
-document.addEventListener("DOMContentLoaded", function () {
-  let itemCount7 = 0;
-  const chilliCheeseDP = document.getElementById("chilliCheeseDP");
-  const itemCountSpan7 = document.getElementById("itemCount7");
-  const minusBtn7 = document.getElementById("minusBtn7");
-  const plusBtn7 = document.getElementById("plusBtn7");
-  minusBtn7.addEventListener("click", function () {
-    if (itemCount7 > 0) {
-      itemCount7--;
-      itemCountSpan7.textContent = itemCount7;
-    }
-  });
-
-  plusBtn7.addEventListener("click", function () {
-    itemCount7++;
-    itemCountSpan7.textContent = itemCount7;
-  });
-
-  chilliCheeseDP.addEventListener("click", function () {
-    alert(`Added ${itemCount7} items to cart`);
-  });
-  //#
-});
-//#cyan
-document.addEventListener("DOMContentLoaded", function () {
-  let itemCount8 = 0;
-  const paneerAchariDP = document.getElementById("paneerAchariDP");
-  const itemCountSpan8 = document.getElementById("itemCount8");
-  const minusBtn8 = document.getElementById("minusBtn8");
-  const plusBtn8 = document.getElementById("plusBtn8");
-  minusBtn8.addEventListener("click", function () {
-    if (itemCount8 > 0) {
-      itemCount8--;
-      itemCountSpan8.textContent = itemCount8;
-    }
-  });
-
-  plusBtn8.addEventListener("click", function () {
-    itemCount8++;
-    itemCountSpan8.textContent = itemCount8;
-  });
-
-  paneerAchariDP.addEventListener("click", function () {
-    alert(`Added ${itemCount8} items to cart`);
-  });
-  //#
-});
-//#red
-document.addEventListener("DOMContentLoaded", function () {
-  let itemCount9 = 0;
-  const crunchyMexicanDP = document.getElementById("crunchyMexicanDP");
-  const itemCountSpan9 = document.getElementById("itemCount9");
-  const minusBtn9 = document.getElementById("minusBtn9");
-  const plusBtn9 = document.getElementById("plusBtn9");
-  minusBtn9.addEventListener("click", function () {
-    if (itemCount9 > 0) {
-      itemCount9--;
-      itemCountSpan9.textContent = itemCount9;
-    }
-  });
-
-  plusBtn9.addEventListener("click", function () {
-    itemCount9++;
-    itemCountSpan9.textContent = itemCount9;
-  });
-
-  crunchyMexicanDP.addEventListener("click", function () {
-    alert(`Added ${itemCount9} items to cart`);
-  });
-  //#
-});
-//#black
-document.addEventListener("DOMContentLoaded", function () {
-  let itemCount10 = 0;
-  const chickenTikkaAchariDP = document.getElementById("chickenTikkaAchariDP");
-  const itemCountSpan10 = document.getElementById("itemCount10");
-  const minusBtn10 = document.getElementById("minusBtn10");
-  const plusBtn10 = document.getElementById("plusBtn10");
-  minusBtn10.addEventListener("click", function () {
-    if (itemCount10 > 0) {
-      itemCount10--;
-      itemCountSpan10.textContent = itemCount10;
-    }
-  });
-
-  plusBtn10.addEventListener("click", function () {
-    itemCount10++;
-    itemCountSpan10.textContent = itemCount10;
-  });
-
-  chickenTikkaAchariDP.addEventListener("click", function () {
-    alert(`Added ${itemCount10} items to cart`);
-  });
-  //#
-});
 //#purple
-document.addEventListener("DOMContentLoaded", function () {
-  let itemCount11 = 0;
-  const pepperChickenDP = document.getElementById("pepperChickenDP");
-  const itemCountSpan11 = document.getElementById("itemCount11");
-  const minusBtn11 = document.getElementById("minusBtn11");
-  const plusBtn11 = document.getElementById("plusBtn11");
-  minusBtn3.addEventListener("click", function () {
-    if (itemCount11 > 0) {
-      itemCount11--;
-      itemCountSpan11.textContent = itemCount11;
-    }
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  const addToCartButton = document.getElementById("bombayGrill");
+  const cartCountElement = document.getElementById("cart-count");
+  const cartItemsElement = document.getElementById("cart-items");
+  const productImageSrc = document.getElementById("bombayGrillimgID").src;
+  const totalPriceElement = document.getElementById("total-price");
+  const productPrice = 250;
+  let total = 0;
 
-  plusBtn11.addEventListener("click", function () {
-    itemCount11++;
-    itemCountSpan11.textContent = itemCount11;
-  });
+  addToCartButton.addEventListener("click", () => {
+    let currentCount = parseInt(cartCountElement.textContent);
+    cartCountElement.textContent = currentCount + 1;
 
-  pepperChickenDP.addEventListener("click", function () {
-    alert(`Added ${itemCount11} items to cart`);
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
+
+    const cartItemImage = document.createElement("img");
+    cartItemImage.src = productImageSrc;
+
+    const minusButton = document.createElement("button");
+    minusButton.textContent = "-";
+    minusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      if (count > 0) {
+        itemCount.textContent = count - 1;
+        total -= productPrice;
+        updateTotalPrice();
+      }
+    });
+
+    const itemCount = document.createElement("span");
+    itemCount.id = "itemCountA";
+    itemCount.textContent = "1";
+
+    const plusButton = document.createElement("button");
+    plusButton.textContent = "+";
+    plusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      itemCount.textContent = count + 1;
+      total += productPrice;
+      updateTotalPrice();
+    });
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      cartItemsElement.removeChild(cartItem);
+      let currentCount = parseInt(cartCountElement.textContent);
+      cartCountElement.textContent = currentCount - 1;
+      total -= count * productPrice;
+      updateTotalPrice();
+      addToCartButton.textContent = "Add to Cart";
+      addToCartButton.disabled = false;
+    });
+
+    cartItem.appendChild(cartItemImage);
+    cartItem.appendChild(minusButton);
+    cartItem.appendChild(itemCount);
+    cartItem.appendChild(plusButton);
+    cartItem.appendChild(removeButton);
+
+    cartItemsElement.appendChild(cartItem);
+    total += productPrice;
+    updateTotalPrice();
+    addToCartButton.textContent = "Task Added";
+    addToCartButton.disabled = true;
   });
-  //#
-});
+  function updateTotalPrice() {
+    totalPriceElement.textContent = `Total: Rs. ${total}`;
+  }
+}); //#
 //#green
-document.addEventListener("DOMContentLoaded", function () {
-  let itemCount12 = 0;
-  const americanBBQDP = document.getElementById("americanBBQDP");
-  const itemCountSpan12 = document.getElementById("itemCount12");
-  const minusBtn12 = document.getElementById("minusBtn12");
-  const plusBtn12 = document.getElementById("plusBtn12");
-  minusBtn12.addEventListener("click", function () {
-    if (itemCount12 > 0) {
-      itemCount12--;
-      itemCountSpan12.textContent = itemCount12;
-    }
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  const addToCartButton = document.getElementById("americanBBQDP");
+  const cartCountElement = document.getElementById("cart-count");
+  const cartItemsElement = document.getElementById("cart-items");
+  const productImageSrc = document.getElementById("americanBBQDPimgID").src;
+  const totalPriceElement = document.getElementById("total-price");
+  const productPrice = 350;
+  let total = 0;
 
-  plusBtn12.addEventListener("click", function () {
-    itemCount12++;
-    itemCountSpan12.textContent = itemCount12;
-  });
+  addToCartButton.addEventListener("click", () => {
+    let currentCount = parseInt(cartCountElement.textContent);
+    cartCountElement.textContent = currentCount + 1;
 
-  americanBBQDP.addEventListener("click", function () {
-    alert(`Added ${itemCount12} items to cart`);
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
+
+    const cartItemImage = document.createElement("img");
+    cartItemImage.src = productImageSrc;
+
+    const minusButton = document.createElement("button");
+    minusButton.textContent = "-";
+    minusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      if (count > 0) {
+        itemCount.textContent = count - 1;
+        total -= productPrice;
+        updateTotalPrice();
+      }
+    });
+
+    const itemCount = document.createElement("span");
+    itemCount.id = "itemCountA";
+    itemCount.textContent = "1";
+
+    const plusButton = document.createElement("button");
+    plusButton.textContent = "+";
+    plusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      itemCount.textContent = count + 1;
+      total += productPrice;
+      updateTotalPrice();
+    });
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      cartItemsElement.removeChild(cartItem);
+      let currentCount = parseInt(cartCountElement.textContent);
+      cartCountElement.textContent = currentCount - 1;
+      total -= count * productPrice;
+      updateTotalPrice();
+      addToCartButton.textContent = "Add to Cart";
+      addToCartButton.disabled = false;
+    });
+
+    cartItem.appendChild(cartItemImage);
+    cartItem.appendChild(minusButton);
+    cartItem.appendChild(itemCount);
+    cartItem.appendChild(plusButton);
+    cartItem.appendChild(removeButton);
+
+    cartItemsElement.appendChild(cartItem);
+    total += productPrice;
+    updateTotalPrice();
+    addToCartButton.textContent = "Task Added";
+    addToCartButton.disabled = true;
   });
+  function updateTotalPrice() {
+    totalPriceElement.textContent = `Total: Rs. ${total}`;
+  }
+}); //#
+//#black
+document.addEventListener("DOMContentLoaded", () => {
+  const addToCartButton = document.getElementById("pepperChickenDP");
+  const cartCountElement = document.getElementById("cart-count");
+  const cartItemsElement = document.getElementById("cart-items");
+  const productImageSrc = document.getElementById("pepperChickenDPimgID").src;
+  const totalPriceElement = document.getElementById("total-price");
+  const productPrice = 450;
+  let total = 0;
+
+  addToCartButton.addEventListener("click", () => {
+    let currentCount = parseInt(cartCountElement.textContent);
+    cartCountElement.textContent = currentCount + 1;
+
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
+
+    const cartItemImage = document.createElement("img");
+    cartItemImage.src = productImageSrc;
+
+    const minusButton = document.createElement("button");
+    minusButton.textContent = "-";
+    minusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      if (count > 0) {
+        itemCount.textContent = count - 1;
+        total -= productPrice;
+        updateTotalPrice();
+      }
+    });
+
+    const itemCount = document.createElement("span");
+    itemCount.id = "itemCountA";
+    itemCount.textContent = "1";
+
+    const plusButton = document.createElement("button");
+    plusButton.textContent = "+";
+    plusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      itemCount.textContent = count + 1;
+      total += productPrice;
+      updateTotalPrice();
+    });
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      cartItemsElement.removeChild(cartItem);
+      let currentCount = parseInt(cartCountElement.textContent);
+      cartCountElement.textContent = currentCount - 1;
+      total -= count * productPrice;
+      updateTotalPrice();
+      addToCartButton.textContent = "Add to Cart";
+      addToCartButton.disabled = false;
+    });
+
+    cartItem.appendChild(cartItemImage);
+    cartItem.appendChild(minusButton);
+    cartItem.appendChild(itemCount);
+    cartItem.appendChild(plusButton);
+    cartItem.appendChild(removeButton);
+
+    cartItemsElement.appendChild(cartItem);
+    total += productPrice;
+    updateTotalPrice();
+    addToCartButton.textContent = "Task Added";
+    addToCartButton.disabled = true;
+  });
+  function updateTotalPrice() {
+    totalPriceElement.textContent = `Total: Rs. ${total}`;
+  }
+}); //#
+//#red
+document.addEventListener("DOMContentLoaded", () => {
+  const addToCartButton = document.getElementById("chickenTikkaAchariDP");
+  const cartCountElement = document.getElementById("cart-count");
+  const cartItemsElement = document.getElementById("cart-items");
+  const productImageSrc = document.getElementById(
+    "chickenTikkaAchariDPimgID"
+  ).src;
+  const totalPriceElement = document.getElementById("total-price");
+  const productPrice = 450;
+  let total = 0;
+
+  addToCartButton.addEventListener("click", () => {
+    let currentCount = parseInt(cartCountElement.textContent);
+    cartCountElement.textContent = currentCount + 1;
+
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
+
+    const cartItemImage = document.createElement("img");
+    cartItemImage.src = productImageSrc;
+
+    const minusButton = document.createElement("button");
+    minusButton.textContent = "-";
+    minusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      if (count > 0) {
+        itemCount.textContent = count - 1;
+        total -= productPrice;
+        updateTotalPrice();
+      }
+    });
+
+    const itemCount = document.createElement("span");
+    itemCount.id = "itemCountA";
+    itemCount.textContent = "1";
+
+    const plusButton = document.createElement("button");
+    plusButton.textContent = "+";
+    plusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      itemCount.textContent = count + 1;
+      total += productPrice;
+      updateTotalPrice();
+    });
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      cartItemsElement.removeChild(cartItem);
+      let currentCount = parseInt(cartCountElement.textContent);
+      cartCountElement.textContent = currentCount - 1;
+      total -= count * productPrice;
+      updateTotalPrice();
+      addToCartButton.textContent = "Add to Cart";
+      addToCartButton.disabled = false;
+    });
+
+    cartItem.appendChild(cartItemImage);
+    cartItem.appendChild(minusButton);
+    cartItem.appendChild(itemCount);
+    cartItem.appendChild(plusButton);
+    cartItem.appendChild(removeButton);
+
+    cartItemsElement.appendChild(cartItem);
+    total += productPrice;
+    updateTotalPrice();
+    addToCartButton.textContent = "Task Added";
+    addToCartButton.disabled = true;
+  });
+  function updateTotalPrice() {
+    totalPriceElement.textContent = `Total: Rs. ${total}`;
+  }
+}); //#
+//#blue
+document.addEventListener("DOMContentLoaded", () => {
+  const addToCartButton = document.getElementById("crunchyMexicanDP");
+  const cartCountElement = document.getElementById("cart-count");
+  const cartItemsElement = document.getElementById("cart-items");
+  const productImageSrc = document.getElementById("crunchyMexicanDPimgID").src;
+  const totalPriceElement = document.getElementById("total-price");
+  const productPrice = 450;
+  let total = 0;
+
+  addToCartButton.addEventListener("click", () => {
+    let currentCount = parseInt(cartCountElement.textContent);
+    cartCountElement.textContent = currentCount + 1;
+
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
+
+    const cartItemImage = document.createElement("img");
+    cartItemImage.src = productImageSrc;
+
+    const minusButton = document.createElement("button");
+    minusButton.textContent = "-";
+    minusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      if (count > 0) {
+        itemCount.textContent = count - 1;
+        total -= productPrice;
+        updateTotalPrice();
+      }
+    });
+
+    const itemCount = document.createElement("span");
+    itemCount.id = "itemCountA";
+    itemCount.textContent = "1";
+
+    const plusButton = document.createElement("button");
+    plusButton.textContent = "+";
+    plusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      itemCount.textContent = count + 1;
+      total += productPrice;
+      updateTotalPrice();
+    });
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      cartItemsElement.removeChild(cartItem);
+      let currentCount = parseInt(cartCountElement.textContent);
+      cartCountElement.textContent = currentCount - 1;
+      total -= count * productPrice;
+      updateTotalPrice();
+      addToCartButton.textContent = "Add to Cart";
+      addToCartButton.disabled = false;
+    });
+
+    cartItem.appendChild(cartItemImage);
+    cartItem.appendChild(minusButton);
+    cartItem.appendChild(itemCount);
+    cartItem.appendChild(plusButton);
+    cartItem.appendChild(removeButton);
+
+    cartItemsElement.appendChild(cartItem);
+    total += productPrice;
+    updateTotalPrice();
+    addToCartButton.textContent = "Task Added";
+    addToCartButton.disabled = true;
+  });
+  function updateTotalPrice() {
+    totalPriceElement.textContent = `Total: Rs. ${total}`;
+  }
+}); //#
+//#magenta
+document.addEventListener("DOMContentLoaded", () => {
+  const addToCartButton = document.getElementById("paneerAchariDP");
+  const cartCountElement = document.getElementById("cart-count");
+  const cartItemsElement = document.getElementById("cart-items");
+  const productImageSrc = document.getElementById("paneerAchariDPimgID").src;
+  const totalPriceElement = document.getElementById("total-price");
+  const productPrice = 450;
+  let total = 0;
+
+  addToCartButton.addEventListener("click", () => {
+    let currentCount = parseInt(cartCountElement.textContent);
+    cartCountElement.textContent = currentCount + 1;
+
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
+
+    const cartItemImage = document.createElement("img");
+    cartItemImage.src = productImageSrc;
+
+    const minusButton = document.createElement("button");
+    minusButton.textContent = "-";
+    minusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      if (count > 0) {
+        itemCount.textContent = count - 1;
+        total -= productPrice;
+        updateTotalPrice();
+      }
+    });
+
+    const itemCount = document.createElement("span");
+    itemCount.id = "itemCountA";
+    itemCount.textContent = "1";
+
+    const plusButton = document.createElement("button");
+    plusButton.textContent = "+";
+    plusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      itemCount.textContent = count + 1;
+      total += productPrice;
+      updateTotalPrice();
+    });
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      cartItemsElement.removeChild(cartItem);
+      let currentCount = parseInt(cartCountElement.textContent);
+      cartCountElement.textContent = currentCount - 1;
+      total -= count * productPrice;
+      updateTotalPrice();
+      addToCartButton.textContent = "Add to Cart";
+      addToCartButton.disabled = false;
+    });
+
+    cartItem.appendChild(cartItemImage);
+    cartItem.appendChild(minusButton);
+    cartItem.appendChild(itemCount);
+    cartItem.appendChild(plusButton);
+    cartItem.appendChild(removeButton);
+
+    cartItemsElement.appendChild(cartItem);
+    total += productPrice;
+    updateTotalPrice();
+    addToCartButton.textContent = "Task Added";
+    addToCartButton.disabled = true;
+  });
+  function updateTotalPrice() {
+    totalPriceElement.textContent = `Total: Rs. ${total}`;
+  }
+}); //#
+//#orange
+document.addEventListener("DOMContentLoaded", () => {
+  const addToCartButton = document.getElementById("chilliCheeseDP");
+  const cartCountElement = document.getElementById("cart-count");
+  const cartItemsElement = document.getElementById("cart-items");
+  const productImageSrc = document.getElementById("chilliCheeseDPimgID").src;
+  const totalPriceElement = document.getElementById("total-price");
+  const productPrice = 450;
+  let total = 0;
+
+  addToCartButton.addEventListener("click", () => {
+    let currentCount = parseInt(cartCountElement.textContent);
+    cartCountElement.textContent = currentCount + 1;
+
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
+
+    const cartItemImage = document.createElement("img");
+    cartItemImage.src = productImageSrc;
+
+    const minusButton = document.createElement("button");
+    minusButton.textContent = "-";
+    minusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      if (count > 0) {
+        itemCount.textContent = count - 1;
+        total -= productPrice;
+        updateTotalPrice();
+      }
+    });
+
+    const itemCount = document.createElement("span");
+    itemCount.id = "itemCountA";
+    itemCount.textContent = "1";
+
+    const plusButton = document.createElement("button");
+    plusButton.textContent = "+";
+    plusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      itemCount.textContent = count + 1;
+      total += productPrice;
+      updateTotalPrice();
+    });
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      cartItemsElement.removeChild(cartItem);
+      let currentCount = parseInt(cartCountElement.textContent);
+      cartCountElement.textContent = currentCount - 1;
+      total -= count * productPrice;
+      updateTotalPrice();
+      addToCartButton.textContent = "Add to Cart";
+      addToCartButton.disabled = false;
+    });
+
+    cartItem.appendChild(cartItemImage);
+    cartItem.appendChild(minusButton);
+    cartItem.appendChild(itemCount);
+    cartItem.appendChild(plusButton);
+    cartItem.appendChild(removeButton);
+
+    cartItemsElement.appendChild(cartItem);
+    total += productPrice;
+    updateTotalPrice();
+    addToCartButton.textContent = "Task Added";
+    addToCartButton.disabled = true;
+  });
+  function updateTotalPrice() {
+    totalPriceElement.textContent = `Total: Rs. ${total}`;
+  }
+}); //#
+//#violet
+document.addEventListener("DOMContentLoaded", () => {
+  const addToCartButton = document.getElementById("eggnCheeseDP");
+  const cartCountElement = document.getElementById("cart-count");
+  const cartItemsElement = document.getElementById("cart-items");
+  const productImageSrc = document.getElementById("eggnCheeseDPimgID").src;
+  const totalPriceElement = document.getElementById("total-price");
+  const productPrice = 450;
+  let total = 0;
+
+  addToCartButton.addEventListener("click", () => {
+    let currentCount = parseInt(cartCountElement.textContent);
+    cartCountElement.textContent = currentCount + 1;
+
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
+
+    const cartItemImage = document.createElement("img");
+    cartItemImage.src = productImageSrc;
+
+    const minusButton = document.createElement("button");
+    minusButton.textContent = "-";
+    minusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      if (count > 0) {
+        itemCount.textContent = count - 1;
+        total -= productPrice;
+        updateTotalPrice();
+      }
+    });
+
+    const itemCount = document.createElement("span");
+    itemCount.id = "itemCountA";
+    itemCount.textContent = "1";
+
+    const plusButton = document.createElement("button");
+    plusButton.textContent = "+";
+    plusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      itemCount.textContent = count + 1;
+      total += productPrice;
+      updateTotalPrice();
+    });
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      cartItemsElement.removeChild(cartItem);
+      let currentCount = parseInt(cartCountElement.textContent);
+      cartCountElement.textContent = currentCount - 1;
+      total -= count * productPrice;
+      updateTotalPrice();
+      addToCartButton.textContent = "Add to Cart";
+      addToCartButton.disabled = false;
+    });
+
+    cartItem.appendChild(cartItemImage);
+    cartItem.appendChild(minusButton);
+    cartItem.appendChild(itemCount);
+    cartItem.appendChild(plusButton);
+    cartItem.appendChild(removeButton);
+
+    cartItemsElement.appendChild(cartItem);
+    total += productPrice;
+    updateTotalPrice();
+    addToCartButton.textContent = "Task Added";
+    addToCartButton.disabled = true;
+  });
+  function updateTotalPrice() {
+    totalPriceElement.textContent = `Total: Rs. ${total}`;
+  }
+}); //#
+//#brown
+document.addEventListener("DOMContentLoaded", () => {
+  const addToCartButton = document.getElementById("roastChickenMeltDP");
+  const cartCountElement = document.getElementById("cart-count");
+  const cartItemsElement = document.getElementById("cart-items");
+  const productImageSrc = document.getElementById(
+    "roastChickenMeltDPimgID"
+  ).src;
+  const totalPriceElement = document.getElementById("total-price");
+  const productPrice = 450;
+  let total = 0;
+
+  addToCartButton.addEventListener("click", () => {
+    let currentCount = parseInt(cartCountElement.textContent);
+    cartCountElement.textContent = currentCount + 1;
+
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
+
+    const cartItemImage = document.createElement("img");
+    cartItemImage.src = productImageSrc;
+
+    const minusButton = document.createElement("button");
+    minusButton.textContent = "-";
+    minusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      if (count > 0) {
+        itemCount.textContent = count - 1;
+        total -= productPrice;
+        updateTotalPrice();
+      }
+    });
+
+    const itemCount = document.createElement("span");
+    itemCount.id = "itemCountA";
+    itemCount.textContent = "1";
+
+    const plusButton = document.createElement("button");
+    plusButton.textContent = "+";
+    plusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      itemCount.textContent = count + 1;
+      total += productPrice;
+      updateTotalPrice();
+    });
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      cartItemsElement.removeChild(cartItem);
+      let currentCount = parseInt(cartCountElement.textContent);
+      cartCountElement.textContent = currentCount - 1;
+      total -= count * productPrice;
+      updateTotalPrice();
+      addToCartButton.textContent = "Add to Cart";
+      addToCartButton.disabled = false;
+    });
+
+    cartItem.appendChild(cartItemImage);
+    cartItem.appendChild(minusButton);
+    cartItem.appendChild(itemCount);
+    cartItem.appendChild(plusButton);
+    cartItem.appendChild(removeButton);
+
+    cartItemsElement.appendChild(cartItem);
+    total += productPrice;
+    updateTotalPrice();
+    addToCartButton.textContent = "Task Added";
+    addToCartButton.disabled = true;
+  });
+  function updateTotalPrice() {
+    totalPriceElement.textContent = `Total: Rs. ${total}`;
+  }
+}); //#
+//#navy
+document.addEventListener("DOMContentLoaded", () => {
+  const addToCartButton = document.getElementById("chickenKeemsDP");
+  const cartCountElement = document.getElementById("cart-count");
+  const cartItemsElement = document.getElementById("cart-items");
+  const productImageSrc = document.getElementById("chickenKeemsDPimgID").src;
+  const totalPriceElement = document.getElementById("total-price");
+  const productPrice = 450;
+  let total = 0;
+
+  addToCartButton.addEventListener("click", () => {
+    let currentCount = parseInt(cartCountElement.textContent);
+    cartCountElement.textContent = currentCount + 1;
+
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
+
+    const cartItemImage = document.createElement("img");
+    cartItemImage.src = productImageSrc;
+
+    const minusButton = document.createElement("button");
+    minusButton.textContent = "-";
+    minusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      if (count > 0) {
+        itemCount.textContent = count - 1;
+        total -= productPrice;
+        updateTotalPrice();
+      }
+    });
+
+    const itemCount = document.createElement("span");
+    itemCount.id = "itemCountA";
+    itemCount.textContent = "1";
+
+    const plusButton = document.createElement("button");
+    plusButton.textContent = "+";
+    plusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      itemCount.textContent = count + 1;
+      total += productPrice;
+      updateTotalPrice();
+    });
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      cartItemsElement.removeChild(cartItem);
+      let currentCount = parseInt(cartCountElement.textContent);
+      cartCountElement.textContent = currentCount - 1;
+      total -= count * productPrice;
+      updateTotalPrice();
+      addToCartButton.textContent = "Add to Cart";
+      addToCartButton.disabled = false;
+    });
+
+    cartItem.appendChild(cartItemImage);
+    cartItem.appendChild(minusButton);
+    cartItem.appendChild(itemCount);
+    cartItem.appendChild(plusButton);
+    cartItem.appendChild(removeButton);
+
+    cartItemsElement.appendChild(cartItem);
+    total += productPrice;
+    updateTotalPrice();
+    addToCartButton.textContent = "Task Added";
+    addToCartButton.disabled = true;
+  });
+  function updateTotalPrice() {
+    totalPriceElement.textContent = `Total: Rs. ${total}`;
+  }
+}); //#
+//#green
+document.addEventListener("DOMContentLoaded", () => {
+  const addToCartButton = document.getElementById("threeCheeseMeltDP");
+  const cartCountElement = document.getElementById("cart-count");
+  const cartItemsElement = document.getElementById("cart-items");
+  const productImageSrc = document.getElementById("threeCheeseMeltDPimgID").src;
+  const totalPriceElement = document.getElementById("total-price");
+  const productPrice = 450;
+  let total = 0;
+
+  addToCartButton.addEventListener("click", () => {
+    let currentCount = parseInt(cartCountElement.textContent);
+    cartCountElement.textContent = currentCount + 1;
+
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
+
+    const cartItemImage = document.createElement("img");
+    cartItemImage.src = productImageSrc;
+
+    const minusButton = document.createElement("button");
+    minusButton.textContent = "-";
+    minusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      if (count > 0) {
+        itemCount.textContent = count - 1;
+        total -= productPrice;
+        updateTotalPrice();
+      }
+    });
+
+    const itemCount = document.createElement("span");
+    itemCount.id = "itemCountA";
+    itemCount.textContent = "1";
+
+    const plusButton = document.createElement("button");
+    plusButton.textContent = "+";
+    plusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      itemCount.textContent = count + 1;
+      total += productPrice;
+      updateTotalPrice();
+    });
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      cartItemsElement.removeChild(cartItem);
+      let currentCount = parseInt(cartCountElement.textContent);
+      cartCountElement.textContent = currentCount - 1;
+      total -= count * productPrice;
+      updateTotalPrice();
+      addToCartButton.textContent = "Add to Cart";
+      addToCartButton.disabled = false;
+    });
+
+    cartItem.appendChild(cartItemImage);
+    cartItem.appendChild(minusButton);
+    cartItem.appendChild(itemCount);
+    cartItem.appendChild(plusButton);
+    cartItem.appendChild(removeButton);
+
+    cartItemsElement.appendChild(cartItem);
+    total += productPrice;
+    updateTotalPrice();
+    addToCartButton.textContent = "Task Added";
+    addToCartButton.disabled = true;
+  });
+  function updateTotalPrice() {
+    totalPriceElement.textContent = `Total: Rs. ${total}`;
+  }
+}); //#
+//#gold
+document.addEventListener("DOMContentLoaded", () => {
+  const addToCartButton = document.getElementById("delhiTikkiDP");
+  const cartCountElement = document.getElementById("cart-count");
+  const cartItemsElement = document.getElementById("cart-items");
+  const productImageSrc = document.getElementById("delhiTikkiDPimgID").src;
+  const totalPriceElement = document.getElementById("total-price");
+  const productPrice = 450;
+  let total = 0;
+
+  addToCartButton.addEventListener("click", () => {
+    let currentCount = parseInt(cartCountElement.textContent);
+    cartCountElement.textContent = currentCount + 1;
+
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
+
+    const cartItemImage = document.createElement("img");
+    cartItemImage.src = productImageSrc;
+
+    const minusButton = document.createElement("button");
+    minusButton.textContent = "-";
+    minusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      if (count > 0) {
+        itemCount.textContent = count - 1;
+        total -= productPrice;
+        updateTotalPrice();
+      }
+    });
+
+    const itemCount = document.createElement("span");
+    itemCount.id = "itemCountA";
+    itemCount.textContent = "1";
+
+    const plusButton = document.createElement("button");
+    plusButton.textContent = "+";
+    plusButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      itemCount.textContent = count + 1;
+      total += productPrice;
+      updateTotalPrice();
+    });
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.addEventListener("click", () => {
+      const itemCount = cartItem.querySelector("span");
+      let count = parseInt(itemCount.textContent);
+      cartItemsElement.removeChild(cartItem);
+      let currentCount = parseInt(cartCountElement.textContent);
+      cartCountElement.textContent = currentCount - 1;
+      total -= count * productPrice;
+      updateTotalPrice();
+      addToCartButton.textContent = "Add to Cart";
+      addToCartButton.disabled = false;
+    });
+
+    cartItem.appendChild(cartItemImage);
+    cartItem.appendChild(minusButton);
+    cartItem.appendChild(itemCount);
+    cartItem.appendChild(plusButton);
+    cartItem.appendChild(removeButton);
+
+    cartItemsElement.appendChild(cartItem);
+    total += productPrice;
+    updateTotalPrice();
+    addToCartButton.textContent = "Task Added";
+    addToCartButton.disabled = true;
+  });
+  function updateTotalPrice() {
+    totalPriceElement.textContent = `Total: Rs. ${total}`;
+  }
 }); //#
