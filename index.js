@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartItemsElement = document.getElementById("cart-items");
   const productImageSrc = document.getElementById("bombayGrillimgID").src;
   const totalPriceElement = document.getElementById("total-price");
-  const productPrice = 250;
+  let productPrice = 250;
   let total = 0;
 
   addToCartButton.addEventListener("click", () => {
@@ -168,6 +168,11 @@ document.addEventListener("DOMContentLoaded", () => {
       updateTotalPrice();
     });
 
+    const totalABC = document.createElement("span");
+    total = productPrice;
+    totalABC.textContent = `(Rs. ${total} )`;
+    totalABC.id = "basePrice";
+
     const removeButton = document.createElement("button");
     removeButton.textContent = "Remove";
     removeButton.addEventListener("click", () => {
@@ -186,10 +191,11 @@ document.addEventListener("DOMContentLoaded", () => {
     cartItem.appendChild(minusButton);
     cartItem.appendChild(itemCount);
     cartItem.appendChild(plusButton);
+    cartItem.appendChild(totalABC);
     cartItem.appendChild(removeButton);
 
     cartItemsElement.appendChild(cartItem);
-    total += productPrice;
+    total = productPrice;
     updateTotalPrice();
     addToCartButton.textContent = "Task Added";
     addToCartButton.disabled = true;
@@ -198,6 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
     totalPriceElement.textContent = `Total: Rs. ${total}`;
   }
 }); //#
+
 //#green
 document.addEventListener("DOMContentLoaded", () => {
   const addToCartButton = document.getElementById("americanBBQDP");
@@ -205,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartItemsElement = document.getElementById("cart-items");
   const productImageSrc = document.getElementById("americanBBQDPimgID").src;
   const totalPriceElement = document.getElementById("total-price");
-  const productPrice = 350;
+  let productPrice = 350;
   let total = 0;
 
   addToCartButton.addEventListener("click", () => {
@@ -231,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const itemCount = document.createElement("span");
-    itemCount.id = "itemCountA";
+    itemCount.id = "itemCountB";
     itemCount.textContent = "1";
 
     const plusButton = document.createElement("button");
@@ -243,6 +250,11 @@ document.addEventListener("DOMContentLoaded", () => {
       total += productPrice;
       updateTotalPrice();
     });
+
+    const basePrice = document.createElement("span");
+    total = productPrice;
+    basePrice.textContent = `(Rs. ${total} )`;
+    basePrice.id = "basePrice2";
 
     const removeButton = document.createElement("button");
     removeButton.textContent = "Remove";
@@ -262,10 +274,11 @@ document.addEventListener("DOMContentLoaded", () => {
     cartItem.appendChild(minusButton);
     cartItem.appendChild(itemCount);
     cartItem.appendChild(plusButton);
+    cartItem.appendChild(basePrice);
     cartItem.appendChild(removeButton);
 
     cartItemsElement.appendChild(cartItem);
-    total += productPrice;
+    total = productPrice;
     updateTotalPrice();
     addToCartButton.textContent = "Task Added";
     addToCartButton.disabled = true;
@@ -307,7 +320,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const itemCount = document.createElement("span");
-    itemCount.id = "itemCountA";
+    itemCount.id = "itemCountC";
     itemCount.textContent = "1";
 
     const plusButton = document.createElement("button");
@@ -319,6 +332,11 @@ document.addEventListener("DOMContentLoaded", () => {
       total += productPrice;
       updateTotalPrice();
     });
+
+    const basePrice = document.createElement("span");
+    total = productPrice;
+    basePrice.textContent = `(Rs. ${total} )`;
+    basePrice.id = "basePrice3";
 
     const removeButton = document.createElement("button");
     removeButton.textContent = "Remove";
@@ -338,10 +356,11 @@ document.addEventListener("DOMContentLoaded", () => {
     cartItem.appendChild(minusButton);
     cartItem.appendChild(itemCount);
     cartItem.appendChild(plusButton);
+    cartItem.appendChild(basePrice);
     cartItem.appendChild(removeButton);
 
     cartItemsElement.appendChild(cartItem);
-    total += productPrice;
+    total = productPrice;
     updateTotalPrice();
     addToCartButton.textContent = "Task Added";
     addToCartButton.disabled = true;
@@ -385,7 +404,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const itemCount = document.createElement("span");
-    itemCount.id = "itemCountA";
+    itemCount.id = "itemCountD";
     itemCount.textContent = "1";
 
     const plusButton = document.createElement("button");
@@ -397,6 +416,11 @@ document.addEventListener("DOMContentLoaded", () => {
       total += productPrice;
       updateTotalPrice();
     });
+
+    const basePrice = document.createElement("span");
+    total = productPrice;
+    basePrice.textContent = `(Rs. ${total} )`;
+    basePrice.id = "basePrice4";
 
     const removeButton = document.createElement("button");
     removeButton.textContent = "Remove";
@@ -416,10 +440,11 @@ document.addEventListener("DOMContentLoaded", () => {
     cartItem.appendChild(minusButton);
     cartItem.appendChild(itemCount);
     cartItem.appendChild(plusButton);
+    cartItem.appendChild(basePrice);
     cartItem.appendChild(removeButton);
 
     cartItemsElement.appendChild(cartItem);
-    total += productPrice;
+    total = productPrice;
     updateTotalPrice();
     addToCartButton.textContent = "Task Added";
     addToCartButton.disabled = true;
@@ -461,7 +486,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const itemCount = document.createElement("span");
-    itemCount.id = "itemCountA";
+    itemCount.id = "itemCountE";
     itemCount.textContent = "1";
 
     const plusButton = document.createElement("button");
@@ -473,6 +498,11 @@ document.addEventListener("DOMContentLoaded", () => {
       total += productPrice;
       updateTotalPrice();
     });
+
+    const basePrice = document.createElement("span");
+    total = productPrice;
+    basePrice.textContent = `(Rs. ${total} )`;
+    basePrice.id = "basePrice5";
 
     const removeButton = document.createElement("button");
     removeButton.textContent = "Remove";
@@ -492,10 +522,11 @@ document.addEventListener("DOMContentLoaded", () => {
     cartItem.appendChild(minusButton);
     cartItem.appendChild(itemCount);
     cartItem.appendChild(plusButton);
+    cartItem.appendChild(basePrice);
     cartItem.appendChild(removeButton);
 
     cartItemsElement.appendChild(cartItem);
-    total += productPrice;
+    total = productPrice;
     updateTotalPrice();
     addToCartButton.textContent = "Task Added";
     addToCartButton.disabled = true;
@@ -537,7 +568,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const itemCount = document.createElement("span");
-    itemCount.id = "itemCountA";
+    itemCount.id = "itemCountF";
     itemCount.textContent = "1";
 
     const plusButton = document.createElement("button");
@@ -549,6 +580,11 @@ document.addEventListener("DOMContentLoaded", () => {
       total += productPrice;
       updateTotalPrice();
     });
+
+    const basePrice = document.createElement("span");
+    total = productPrice;
+    basePrice.textContent = `(Rs. ${total} )`;
+    basePrice.id = "basePrice6";
 
     const removeButton = document.createElement("button");
     removeButton.textContent = "Remove";
@@ -568,10 +604,11 @@ document.addEventListener("DOMContentLoaded", () => {
     cartItem.appendChild(minusButton);
     cartItem.appendChild(itemCount);
     cartItem.appendChild(plusButton);
+    cartItem.appendChild(basePrice);
     cartItem.appendChild(removeButton);
 
     cartItemsElement.appendChild(cartItem);
-    total += productPrice;
+    total = productPrice;
     updateTotalPrice();
     addToCartButton.textContent = "Task Added";
     addToCartButton.disabled = true;
@@ -613,7 +650,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const itemCount = document.createElement("span");
-    itemCount.id = "itemCountA";
+    itemCount.id = "itemCountG";
     itemCount.textContent = "1";
 
     const plusButton = document.createElement("button");
@@ -625,6 +662,11 @@ document.addEventListener("DOMContentLoaded", () => {
       total += productPrice;
       updateTotalPrice();
     });
+
+    const basePrice = document.createElement("span");
+    total = productPrice;
+    basePrice.textContent = `(Rs. ${total} )`;
+    basePrice.id = "basePrice7";
 
     const removeButton = document.createElement("button");
     removeButton.textContent = "Remove";
@@ -644,10 +686,11 @@ document.addEventListener("DOMContentLoaded", () => {
     cartItem.appendChild(minusButton);
     cartItem.appendChild(itemCount);
     cartItem.appendChild(plusButton);
+    cartItem.appendChild(basePrice);
     cartItem.appendChild(removeButton);
 
     cartItemsElement.appendChild(cartItem);
-    total += productPrice;
+    total = productPrice;
     updateTotalPrice();
     addToCartButton.textContent = "Task Added";
     addToCartButton.disabled = true;
@@ -689,7 +732,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const itemCount = document.createElement("span");
-    itemCount.id = "itemCountA";
+    itemCount.id = "itemCountH";
     itemCount.textContent = "1";
 
     const plusButton = document.createElement("button");
@@ -701,6 +744,11 @@ document.addEventListener("DOMContentLoaded", () => {
       total += productPrice;
       updateTotalPrice();
     });
+
+    const basePrice = document.createElement("span");
+    total = productPrice;
+    basePrice.textContent = `(Rs. ${total} )`;
+    basePrice.id = "basePrice8";
 
     const removeButton = document.createElement("button");
     removeButton.textContent = "Remove";
@@ -720,10 +768,11 @@ document.addEventListener("DOMContentLoaded", () => {
     cartItem.appendChild(minusButton);
     cartItem.appendChild(itemCount);
     cartItem.appendChild(plusButton);
+    cartItem.appendChild(basePrice);
     cartItem.appendChild(removeButton);
 
     cartItemsElement.appendChild(cartItem);
-    total += productPrice;
+    total = productPrice;
     updateTotalPrice();
     addToCartButton.textContent = "Task Added";
     addToCartButton.disabled = true;
@@ -767,7 +816,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const itemCount = document.createElement("span");
-    itemCount.id = "itemCountA";
+    itemCount.id = "itemCountI";
     itemCount.textContent = "1";
 
     const plusButton = document.createElement("button");
@@ -779,6 +828,11 @@ document.addEventListener("DOMContentLoaded", () => {
       total += productPrice;
       updateTotalPrice();
     });
+
+    const basePrice = document.createElement("span");
+    total = productPrice;
+    basePrice.textContent = `(Rs. ${total} )`;
+    basePrice.id = "basePrice9";
 
     const removeButton = document.createElement("button");
     removeButton.textContent = "Remove";
@@ -798,10 +852,11 @@ document.addEventListener("DOMContentLoaded", () => {
     cartItem.appendChild(minusButton);
     cartItem.appendChild(itemCount);
     cartItem.appendChild(plusButton);
+    cartItem.appendChild(basePrice);
     cartItem.appendChild(removeButton);
 
     cartItemsElement.appendChild(cartItem);
-    total += productPrice;
+    total = productPrice;
     updateTotalPrice();
     addToCartButton.textContent = "Task Added";
     addToCartButton.disabled = true;
@@ -843,7 +898,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const itemCount = document.createElement("span");
-    itemCount.id = "itemCountA";
+    itemCount.id = "itemCountJ";
     itemCount.textContent = "1";
 
     const plusButton = document.createElement("button");
@@ -855,6 +910,11 @@ document.addEventListener("DOMContentLoaded", () => {
       total += productPrice;
       updateTotalPrice();
     });
+
+    const basePrice = document.createElement("span");
+    total = productPrice;
+    basePrice.textContent = `(Rs. ${total} )`;
+    basePrice.id = "basePrice10";
 
     const removeButton = document.createElement("button");
     removeButton.textContent = "Remove";
@@ -874,10 +934,11 @@ document.addEventListener("DOMContentLoaded", () => {
     cartItem.appendChild(minusButton);
     cartItem.appendChild(itemCount);
     cartItem.appendChild(plusButton);
+    cartItem.appendChild(basePrice);
     cartItem.appendChild(removeButton);
 
     cartItemsElement.appendChild(cartItem);
-    total += productPrice;
+    total = productPrice;
     updateTotalPrice();
     addToCartButton.textContent = "Task Added";
     addToCartButton.disabled = true;
@@ -919,7 +980,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const itemCount = document.createElement("span");
-    itemCount.id = "itemCountA";
+    itemCount.id = "itemCountK";
     itemCount.textContent = "1";
 
     const plusButton = document.createElement("button");
@@ -931,6 +992,11 @@ document.addEventListener("DOMContentLoaded", () => {
       total += productPrice;
       updateTotalPrice();
     });
+
+    const basePrice = document.createElement("span");
+    total = productPrice;
+    basePrice.textContent = `(Rs. ${total} )`;
+    basePrice.id = "basePrice11";
 
     const removeButton = document.createElement("button");
     removeButton.textContent = "Remove";
@@ -950,10 +1016,11 @@ document.addEventListener("DOMContentLoaded", () => {
     cartItem.appendChild(minusButton);
     cartItem.appendChild(itemCount);
     cartItem.appendChild(plusButton);
+    cartItem.appendChild(basePrice);
     cartItem.appendChild(removeButton);
 
     cartItemsElement.appendChild(cartItem);
-    total += productPrice;
+    total = productPrice;
     updateTotalPrice();
     addToCartButton.textContent = "Task Added";
     addToCartButton.disabled = true;
@@ -995,7 +1062,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const itemCount = document.createElement("span");
-    itemCount.id = "itemCountA";
+    itemCount.id = "itemCountL";
     itemCount.textContent = "1";
 
     const plusButton = document.createElement("button");
@@ -1007,6 +1074,11 @@ document.addEventListener("DOMContentLoaded", () => {
       total += productPrice;
       updateTotalPrice();
     });
+
+    const basePrice = document.createElement("span");
+    total = productPrice;
+    basePrice.textContent = `(Rs. ${total} )`;
+    basePrice.id = "basePrice12";
 
     const removeButton = document.createElement("button");
     removeButton.textContent = "Remove";
@@ -1026,10 +1098,11 @@ document.addEventListener("DOMContentLoaded", () => {
     cartItem.appendChild(minusButton);
     cartItem.appendChild(itemCount);
     cartItem.appendChild(plusButton);
+    cartItem.appendChild(basePrice);
     cartItem.appendChild(removeButton);
 
     cartItemsElement.appendChild(cartItem);
-    total += productPrice;
+    total = productPrice;
     updateTotalPrice();
     addToCartButton.textContent = "Task Added";
     addToCartButton.disabled = true;
