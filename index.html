@@ -15,7 +15,7 @@
 	<header>
 		<nav class="head">
 			<ul>
-				<img src="Images\subwayheader.png">
+				<i mg src="Images\subwayheader.png">
 				<li> <button ng-click="selectTab(1)">Home</button></li>
 				<li> <button ng-click="selectTab(2)">Menu</button></li>
 				<li> <button ng-click="selectTab(3)">AboutUs</button></li>
@@ -385,9 +385,8 @@
 	</div>
 	<div class="tab-content" ng-class="{ active: selectedTab === 5 }">
 		<div id="cart-section">
-			<h2>My Cart</h2>
 			<div id="cart-items"></div>
-			<div id="total-price">Total: Rs 0</div>
+			<span id="total-price">Total: Rs 0</span><br>
 			<button class="addToCartBtn">Check out</button>
 		</div>
 	</div>
