@@ -15,7 +15,7 @@
 	<header>
 		<nav class="head">
 			<ul>
-				<i mg src="Images\subwayheader.png">
+				<img src="Images\subwayheader.png">
 				<li> <button ng-click="selectTab(1)">Home</button></li>
 				<li> <button ng-click="selectTab(2)">Menu</button></li>
 				<li> <button ng-click="selectTab(3)">AboutUs</button></li>
@@ -386,13 +386,15 @@
 	<div class="tab-content" ng-class="{ active: selectedTab === 5 }">
 		<div id="cart-section">
 			<div id="cart-items"></div>
-			<span id="total-price">Total: Rs 0</span><br>
-			<button class="addToCartBtn">Check out</button>
+			<div id="grand-total">Grand Total: Rs. 0</div>
+			<button class="addToCartBtn" id="checkout">Check out</button>
 		</div>
+
+		<div id="bill-summary"></div>
 	</div>
-	<div class="homevideo">
+	<div class="homevideo" >
 		<video controls autoplay muted loop>
-			<source src="videos/homevideo.mp4" type="video/mp4">
+			<source src="videos/subwayadvt.mp4" type="video/mp4">
 			Your Browser Does not Support the Tag.
 		</video>
 	</div>
