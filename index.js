@@ -1,4 +1,3 @@
-
 function glow() {
   document.getElementById("mycart").style.backgroundColor = "orange";
 }
