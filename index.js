@@ -1,3 +1,4 @@
+
 function glow() {
   document.getElementById("mycart").style.backgroundColor = "orange";
 }
@@ -121,16 +122,31 @@ eventL12.onclick = function () {
 closeBtn12.onclick = function () {
   dialogBox12.style.display = "none";
 };
-
-//#purple
+let grandTotal = 0;
 document.addEventListener("DOMContentLoaded", () => {
-  const addToCartButton = document.getElementById("bombayGrill");
+  setupCartForProduct("bombayGrill", "bombayGrillimgID", 250);
+  setupCartForProduct("americanBBQDP", "americanBBQDPimgID", 350);
+  setupCartForProduct("pepperChickenDP", "pepperChickenDPimgID", 450);
+  setupCartForProduct("chickenTikkaAchariDP", "chickenTikkaAchariDPimgID", 550);
+  setupCartForProduct("crunchyMexicanDP", "crunchyMexicanDPimgID", 455);
+  setupCartForProduct("paneerAchariDP", "paneerAchariDPimgID", 240);
+  setupCartForProduct("chilliCheeseDP", "chilliCheeseDPimgID", 245);
+  setupCartForProduct("eggnCheeseDP", "eggnCheeseDPimgID", 195);
+  setupCartForProduct("roastChickenMeltDP", "roastChickenMeltDPimgID", 260);
+  setupCartForProduct("chickenKeemsDP", "chickenKeemsDPimgID", 230);
+  setupCartForProduct("threeCheeseMeltDP", "threeCheeseMeltDPimgID", 450);
+  setupCartForProduct("delhiTikkiDP", "delhiTikkiDPimgID", 240);
+
+  const checkoutButton = document.getElementById("checkout");
+  checkoutButton.addEventListener("click", generateBillSummary);
+});
+
+function setupCartForProduct(buttonId, imgId, productPrice) {
+  const addToCartButton = document.getElementById(buttonId);
   const cartCountElement = document.getElementById("cart-count");
   const cartItemsElement = document.getElementById("cart-items");
-  const productImageSrc = document.getElementById("bombayGrillimgID").src;
-  const totalPriceElement = document.getElementById("total-price");
-  let productPrice = 250;
-  let total = 0;
+  const productImageSrc = document.getElementById(imgId).src;
+  const grandTotalElement = document.getElementById("grand-total");
 
   addToCartButton.addEventListener("click", () => {
     let currentCount = parseInt(cartCountElement.textContent);
@@ -145,44 +161,44 @@ document.addEventListener("DOMContentLoaded", () => {
     const minusButton = document.createElement("button");
     minusButton.textContent = "-";
     minusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
+      const itemCount = cartItem.querySelector("span.item-count");
       let count = parseInt(itemCount.textContent);
       if (count > 0) {
         itemCount.textContent = count - 1;
-        total -= productPrice;
-        updateTotalPrice();
+        grandTotal -= productPrice;
+        updateGrandTotal();
       }
     });
 
     const itemCount = document.createElement("span");
-    itemCount.id = "itemCountA";
+    itemCount.classList.add("item-count");
     itemCount.textContent = "1";
 
     const plusButton = document.createElement("button");
     plusButton.textContent = "+";
     plusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
+      const itemCount = cartItem.querySelector("span.item-count");
       let count = parseInt(itemCount.textContent);
       itemCount.textContent = count + 1;
-      total += productPrice;
-      updateTotalPrice();
+      grandTotal += productPrice;
+      updateGrandTotal();
     });
 
-    const totalABC = document.createElement("span");
+    const totalSpan = document.createElement("span");
     total = productPrice;
-    totalABC.textContent = `(Rs. ${total} )`;
-    totalABC.id = "basePrice";
+    totalSpan.textContent = `(Rs. ${total})`;
+    totalSpan.classList.add("item-total");
 
     const removeButton = document.createElement("button");
     removeButton.textContent = "Remove";
     removeButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
+      const itemCount = cartItem.querySelector("span.item-count");
       let count = parseInt(itemCount.textContent);
       cartItemsElement.removeChild(cartItem);
       let currentCount = parseInt(cartCountElement.textContent);
       cartCountElement.textContent = currentCount - 1;
-      total -= count * productPrice;
-      updateTotalPrice();
+      grandTotal -= count * productPrice;
+      updateGrandTotal();
       addToCartButton.textContent = "Add to Cart";
       addToCartButton.disabled = false;
     });
@@ -191,923 +207,41 @@ document.addEventListener("DOMContentLoaded", () => {
     cartItem.appendChild(minusButton);
     cartItem.appendChild(itemCount);
     cartItem.appendChild(plusButton);
-    cartItem.appendChild(totalABC);
+    cartItem.appendChild(totalSpan);
     cartItem.appendChild(removeButton);
 
     cartItemsElement.appendChild(cartItem);
-    total = productPrice;
-    updateTotalPrice();
+    grandTotal += productPrice;
+    updateGrandTotal();
     addToCartButton.textContent = "Task Added";
     addToCartButton.disabled = true;
   });
-  function updateTotalPrice() {
-    totalPriceElement.textContent = `Total: Rs. ${total}`;
-  }
-}); //#
 
-//#green
-document.addEventListener("DOMContentLoaded", () => {
-  const addToCartButton = document.getElementById("americanBBQDP");
-  const cartCountElement = document.getElementById("cart-count");
+  function updateGrandTotal() {
+    grandTotalElement.textContent = `Grand Total: Rs. ${grandTotal}`;
+  }
+}
+
+function generateBillSummary() {
   const cartItemsElement = document.getElementById("cart-items");
-  const productImageSrc = document.getElementById("americanBBQDPimgID").src;
-  const totalPriceElement = document.getElementById("total-price");
-  let productPrice = 350;
-  let total = 0;
+  const billSummaryElement = document.getElementById("bill-summary");
+  billSummaryElement.innerHTML = ""; // Clear previous summary
 
-  addToCartButton.addEventListener("click", () => {
-    let currentCount = parseInt(cartCountElement.textContent);
-    cartCountElement.textContent = currentCount + 1;
+  const cartItems = cartItemsElement.querySelectorAll(".cart-item");
+  let billHTML = "<h2>Bill Summary</h2>";
+  cartItems.forEach((cartItem) => {
+    const itemImage = cartItem.querySelector("img").src;
+    const itemCount = cartItem.querySelector("span.item-count").textContent;
+    const itemTotal = cartItem.querySelector("span.item-total").textContent;
 
-    const cartItem = document.createElement("div");
-    cartItem.classList.add("cart-item");
+    billHTML += `<div class="bill-item">
+        <img src="${itemImage}" alt="Product Image" style="width: 50px; height: 50px;">
+        <span>Quantity: ${itemCount}</span>
+        <span>${itemTotal}</span>
 
-    const cartItemImage = document.createElement("img");
-    cartItemImage.src = productImageSrc;
-
-    const minusButton = document.createElement("button");
-    minusButton.textContent = "-";
-    minusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      if (count > 0) {
-        itemCount.textContent = count - 1;
-        total -= productPrice;
-        updateTotalPrice();
-      }
-    });
-
-    const itemCount = document.createElement("span");
-    itemCount.id = "itemCountB";
-    itemCount.textContent = "1";
-
-    const plusButton = document.createElement("button");
-    plusButton.textContent = "+";
-    plusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      itemCount.textContent = count + 1;
-      total += productPrice;
-      updateTotalPrice();
-    });
-
-    const basePrice = document.createElement("span");
-    total = productPrice;
-    basePrice.textContent = `(Rs. ${total} )`;
-    basePrice.id = "basePrice2";
-
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-    removeButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      cartItemsElement.removeChild(cartItem);
-      let currentCount = parseInt(cartCountElement.textContent);
-      cartCountElement.textContent = currentCount - 1;
-      total -= count * productPrice;
-      updateTotalPrice();
-      addToCartButton.textContent = "Add to Cart";
-      addToCartButton.disabled = false;
-    });
-
-    cartItem.appendChild(cartItemImage);
-    cartItem.appendChild(minusButton);
-    cartItem.appendChild(itemCount);
-    cartItem.appendChild(plusButton);
-    cartItem.appendChild(basePrice);
-    cartItem.appendChild(removeButton);
-
-    cartItemsElement.appendChild(cartItem);
-    total = productPrice;
-    updateTotalPrice();
-    addToCartButton.textContent = "Task Added";
-    addToCartButton.disabled = true;
+      </div>`;
   });
-  function updateTotalPrice() {
-    totalPriceElement.textContent = `Total: Rs. ${total}`;
-  }
-}); //#
-//#black
-document.addEventListener("DOMContentLoaded", () => {
-  const addToCartButton = document.getElementById("pepperChickenDP");
-  const cartCountElement = document.getElementById("cart-count");
-  const cartItemsElement = document.getElementById("cart-items");
-  const productImageSrc = document.getElementById("pepperChickenDPimgID").src;
-  const totalPriceElement = document.getElementById("total-price");
-  const productPrice = 450;
-  let total = 0;
 
-  addToCartButton.addEventListener("click", () => {
-    let currentCount = parseInt(cartCountElement.textContent);
-    cartCountElement.textContent = currentCount + 1;
-
-    const cartItem = document.createElement("div");
-    cartItem.classList.add("cart-item");
-
-    const cartItemImage = document.createElement("img");
-    cartItemImage.src = productImageSrc;
-
-    const minusButton = document.createElement("button");
-    minusButton.textContent = "-";
-    minusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      if (count > 0) {
-        itemCount.textContent = count - 1;
-        total -= productPrice;
-        updateTotalPrice();
-      }
-    });
-
-    const itemCount = document.createElement("span");
-    itemCount.id = "itemCountC";
-    itemCount.textContent = "1";
-
-    const plusButton = document.createElement("button");
-    plusButton.textContent = "+";
-    plusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      itemCount.textContent = count + 1;
-      total += productPrice;
-      updateTotalPrice();
-    });
-
-    const basePrice = document.createElement("span");
-    total = productPrice;
-    basePrice.textContent = `(Rs. ${total} )`;
-    basePrice.id = "basePrice3";
-
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-    removeButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      cartItemsElement.removeChild(cartItem);
-      let currentCount = parseInt(cartCountElement.textContent);
-      cartCountElement.textContent = currentCount - 1;
-      total -= count * productPrice;
-      updateTotalPrice();
-      addToCartButton.textContent = "Add to Cart";
-      addToCartButton.disabled = false;
-    });
-
-    cartItem.appendChild(cartItemImage);
-    cartItem.appendChild(minusButton);
-    cartItem.appendChild(itemCount);
-    cartItem.appendChild(plusButton);
-    cartItem.appendChild(basePrice);
-    cartItem.appendChild(removeButton);
-
-    cartItemsElement.appendChild(cartItem);
-    total = productPrice;
-    updateTotalPrice();
-    addToCartButton.textContent = "Task Added";
-    addToCartButton.disabled = true;
-  });
-  function updateTotalPrice() {
-    totalPriceElement.textContent = `Total: Rs. ${total}`;
-  }
-}); //#
-//#red
-document.addEventListener("DOMContentLoaded", () => {
-  const addToCartButton = document.getElementById("chickenTikkaAchariDP");
-  const cartCountElement = document.getElementById("cart-count");
-  const cartItemsElement = document.getElementById("cart-items");
-  const productImageSrc = document.getElementById(
-    "chickenTikkaAchariDPimgID"
-  ).src;
-  const totalPriceElement = document.getElementById("total-price");
-  const productPrice = 450;
-  let total = 0;
-
-  addToCartButton.addEventListener("click", () => {
-    let currentCount = parseInt(cartCountElement.textContent);
-    cartCountElement.textContent = currentCount + 1;
-
-    const cartItem = document.createElement("div");
-    cartItem.classList.add("cart-item");
-
-    const cartItemImage = document.createElement("img");
-    cartItemImage.src = productImageSrc;
-
-    const minusButton = document.createElement("button");
-    minusButton.textContent = "-";
-    minusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      if (count > 0) {
-        itemCount.textContent = count - 1;
-        total -= productPrice;
-        updateTotalPrice();
-      }
-    });
-
-    const itemCount = document.createElement("span");
-    itemCount.id = "itemCountD";
-    itemCount.textContent = "1";
-
-    const plusButton = document.createElement("button");
-    plusButton.textContent = "+";
-    plusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      itemCount.textContent = count + 1;
-      total += productPrice;
-      updateTotalPrice();
-    });
-
-    const basePrice = document.createElement("span");
-    total = productPrice;
-    basePrice.textContent = `(Rs. ${total} )`;
-    basePrice.id = "basePrice4";
-
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-    removeButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      cartItemsElement.removeChild(cartItem);
-      let currentCount = parseInt(cartCountElement.textContent);
-      cartCountElement.textContent = currentCount - 1;
-      total -= count * productPrice;
-      updateTotalPrice();
-      addToCartButton.textContent = "Add to Cart";
-      addToCartButton.disabled = false;
-    });
-
-    cartItem.appendChild(cartItemImage);
-    cartItem.appendChild(minusButton);
-    cartItem.appendChild(itemCount);
-    cartItem.appendChild(plusButton);
-    cartItem.appendChild(basePrice);
-    cartItem.appendChild(removeButton);
-
-    cartItemsElement.appendChild(cartItem);
-    total = productPrice;
-    updateTotalPrice();
-    addToCartButton.textContent = "Task Added";
-    addToCartButton.disabled = true;
-  });
-  function updateTotalPrice() {
-    totalPriceElement.textContent = `Total: Rs. ${total}`;
-  }
-}); //#
-//#blue
-document.addEventListener("DOMContentLoaded", () => {
-  const addToCartButton = document.getElementById("crunchyMexicanDP");
-  const cartCountElement = document.getElementById("cart-count");
-  const cartItemsElement = document.getElementById("cart-items");
-  const productImageSrc = document.getElementById("crunchyMexicanDPimgID").src;
-  const totalPriceElement = document.getElementById("total-price");
-  const productPrice = 450;
-  let total = 0;
-
-  addToCartButton.addEventListener("click", () => {
-    let currentCount = parseInt(cartCountElement.textContent);
-    cartCountElement.textContent = currentCount + 1;
-
-    const cartItem = document.createElement("div");
-    cartItem.classList.add("cart-item");
-
-    const cartItemImage = document.createElement("img");
-    cartItemImage.src = productImageSrc;
-
-    const minusButton = document.createElement("button");
-    minusButton.textContent = "-";
-    minusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      if (count > 0) {
-        itemCount.textContent = count - 1;
-        total -= productPrice;
-        updateTotalPrice();
-      }
-    });
-
-    const itemCount = document.createElement("span");
-    itemCount.id = "itemCountE";
-    itemCount.textContent = "1";
-
-    const plusButton = document.createElement("button");
-    plusButton.textContent = "+";
-    plusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      itemCount.textContent = count + 1;
-      total += productPrice;
-      updateTotalPrice();
-    });
-
-    const basePrice = document.createElement("span");
-    total = productPrice;
-    basePrice.textContent = `(Rs. ${total} )`;
-    basePrice.id = "basePrice5";
-
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-    removeButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      cartItemsElement.removeChild(cartItem);
-      let currentCount = parseInt(cartCountElement.textContent);
-      cartCountElement.textContent = currentCount - 1;
-      total -= count * productPrice;
-      updateTotalPrice();
-      addToCartButton.textContent = "Add to Cart";
-      addToCartButton.disabled = false;
-    });
-
-    cartItem.appendChild(cartItemImage);
-    cartItem.appendChild(minusButton);
-    cartItem.appendChild(itemCount);
-    cartItem.appendChild(plusButton);
-    cartItem.appendChild(basePrice);
-    cartItem.appendChild(removeButton);
-
-    cartItemsElement.appendChild(cartItem);
-    total = productPrice;
-    updateTotalPrice();
-    addToCartButton.textContent = "Task Added";
-    addToCartButton.disabled = true;
-  });
-  function updateTotalPrice() {
-    totalPriceElement.textContent = `Total: Rs. ${total}`;
-  }
-}); //#
-//#magenta
-document.addEventListener("DOMContentLoaded", () => {
-  const addToCartButton = document.getElementById("paneerAchariDP");
-  const cartCountElement = document.getElementById("cart-count");
-  const cartItemsElement = document.getElementById("cart-items");
-  const productImageSrc = document.getElementById("paneerAchariDPimgID").src;
-  const totalPriceElement = document.getElementById("total-price");
-  const productPrice = 450;
-  let total = 0;
-
-  addToCartButton.addEventListener("click", () => {
-    let currentCount = parseInt(cartCountElement.textContent);
-    cartCountElement.textContent = currentCount + 1;
-
-    const cartItem = document.createElement("div");
-    cartItem.classList.add("cart-item");
-
-    const cartItemImage = document.createElement("img");
-    cartItemImage.src = productImageSrc;
-
-    const minusButton = document.createElement("button");
-    minusButton.textContent = "-";
-    minusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      if (count > 0) {
-        itemCount.textContent = count - 1;
-        total -= productPrice;
-        updateTotalPrice();
-      }
-    });
-
-    const itemCount = document.createElement("span");
-    itemCount.id = "itemCountF";
-    itemCount.textContent = "1";
-
-    const plusButton = document.createElement("button");
-    plusButton.textContent = "+";
-    plusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      itemCount.textContent = count + 1;
-      total += productPrice;
-      updateTotalPrice();
-    });
-
-    const basePrice = document.createElement("span");
-    total = productPrice;
-    basePrice.textContent = `(Rs. ${total} )`;
-    basePrice.id = "basePrice6";
-
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-    removeButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      cartItemsElement.removeChild(cartItem);
-      let currentCount = parseInt(cartCountElement.textContent);
-      cartCountElement.textContent = currentCount - 1;
-      total -= count * productPrice;
-      updateTotalPrice();
-      addToCartButton.textContent = "Add to Cart";
-      addToCartButton.disabled = false;
-    });
-
-    cartItem.appendChild(cartItemImage);
-    cartItem.appendChild(minusButton);
-    cartItem.appendChild(itemCount);
-    cartItem.appendChild(plusButton);
-    cartItem.appendChild(basePrice);
-    cartItem.appendChild(removeButton);
-
-    cartItemsElement.appendChild(cartItem);
-    total = productPrice;
-    updateTotalPrice();
-    addToCartButton.textContent = "Task Added";
-    addToCartButton.disabled = true;
-  });
-  function updateTotalPrice() {
-    totalPriceElement.textContent = `Total: Rs. ${total}`;
-  }
-}); //#
-//#orange
-document.addEventListener("DOMContentLoaded", () => {
-  const addToCartButton = document.getElementById("chilliCheeseDP");
-  const cartCountElement = document.getElementById("cart-count");
-  const cartItemsElement = document.getElementById("cart-items");
-  const productImageSrc = document.getElementById("chilliCheeseDPimgID").src;
-  const totalPriceElement = document.getElementById("total-price");
-  const productPrice = 450;
-  let total = 0;
-
-  addToCartButton.addEventListener("click", () => {
-    let currentCount = parseInt(cartCountElement.textContent);
-    cartCountElement.textContent = currentCount + 1;
-
-    const cartItem = document.createElement("div");
-    cartItem.classList.add("cart-item");
-
-    const cartItemImage = document.createElement("img");
-    cartItemImage.src = productImageSrc;
-
-    const minusButton = document.createElement("button");
-    minusButton.textContent = "-";
-    minusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      if (count > 0) {
-        itemCount.textContent = count - 1;
-        total -= productPrice;
-        updateTotalPrice();
-      }
-    });
-
-    const itemCount = document.createElement("span");
-    itemCount.id = "itemCountG";
-    itemCount.textContent = "1";
-
-    const plusButton = document.createElement("button");
-    plusButton.textContent = "+";
-    plusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      itemCount.textContent = count + 1;
-      total += productPrice;
-      updateTotalPrice();
-    });
-
-    const basePrice = document.createElement("span");
-    total = productPrice;
-    basePrice.textContent = `(Rs. ${total} )`;
-    basePrice.id = "basePrice7";
-
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-    removeButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      cartItemsElement.removeChild(cartItem);
-      let currentCount = parseInt(cartCountElement.textContent);
-      cartCountElement.textContent = currentCount - 1;
-      total -= count * productPrice;
-      updateTotalPrice();
-      addToCartButton.textContent = "Add to Cart";
-      addToCartButton.disabled = false;
-    });
-
-    cartItem.appendChild(cartItemImage);
-    cartItem.appendChild(minusButton);
-    cartItem.appendChild(itemCount);
-    cartItem.appendChild(plusButton);
-    cartItem.appendChild(basePrice);
-    cartItem.appendChild(removeButton);
-
-    cartItemsElement.appendChild(cartItem);
-    total = productPrice;
-    updateTotalPrice();
-    addToCartButton.textContent = "Task Added";
-    addToCartButton.disabled = true;
-  });
-  function updateTotalPrice() {
-    totalPriceElement.textContent = `Total: Rs. ${total}`;
-  }
-}); //#
-//#violet
-document.addEventListener("DOMContentLoaded", () => {
-  const addToCartButton = document.getElementById("eggnCheeseDP");
-  const cartCountElement = document.getElementById("cart-count");
-  const cartItemsElement = document.getElementById("cart-items");
-  const productImageSrc = document.getElementById("eggnCheeseDPimgID").src;
-  const totalPriceElement = document.getElementById("total-price");
-  const productPrice = 450;
-  let total = 0;
-
-  addToCartButton.addEventListener("click", () => {
-    let currentCount = parseInt(cartCountElement.textContent);
-    cartCountElement.textContent = currentCount + 1;
-
-    const cartItem = document.createElement("div");
-    cartItem.classList.add("cart-item");
-
-    const cartItemImage = document.createElement("img");
-    cartItemImage.src = productImageSrc;
-
-    const minusButton = document.createElement("button");
-    minusButton.textContent = "-";
-    minusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      if (count > 0) {
-        itemCount.textContent = count - 1;
-        total -= productPrice;
-        updateTotalPrice();
-      }
-    });
-
-    const itemCount = document.createElement("span");
-    itemCount.id = "itemCountH";
-    itemCount.textContent = "1";
-
-    const plusButton = document.createElement("button");
-    plusButton.textContent = "+";
-    plusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      itemCount.textContent = count + 1;
-      total += productPrice;
-      updateTotalPrice();
-    });
-
-    const basePrice = document.createElement("span");
-    total = productPrice;
-    basePrice.textContent = `(Rs. ${total} )`;
-    basePrice.id = "basePrice8";
-
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-    removeButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      cartItemsElement.removeChild(cartItem);
-      let currentCount = parseInt(cartCountElement.textContent);
-      cartCountElement.textContent = currentCount - 1;
-      total -= count * productPrice;
-      updateTotalPrice();
-      addToCartButton.textContent = "Add to Cart";
-      addToCartButton.disabled = false;
-    });
-
-    cartItem.appendChild(cartItemImage);
-    cartItem.appendChild(minusButton);
-    cartItem.appendChild(itemCount);
-    cartItem.appendChild(plusButton);
-    cartItem.appendChild(basePrice);
-    cartItem.appendChild(removeButton);
-
-    cartItemsElement.appendChild(cartItem);
-    total = productPrice;
-    updateTotalPrice();
-    addToCartButton.textContent = "Task Added";
-    addToCartButton.disabled = true;
-  });
-  function updateTotalPrice() {
-    totalPriceElement.textContent = `Total: Rs. ${total}`;
-  }
-}); //#
-//#brown
-document.addEventListener("DOMContentLoaded", () => {
-  const addToCartButton = document.getElementById("roastChickenMeltDP");
-  const cartCountElement = document.getElementById("cart-count");
-  const cartItemsElement = document.getElementById("cart-items");
-  const productImageSrc = document.getElementById(
-    "roastChickenMeltDPimgID"
-  ).src;
-  const totalPriceElement = document.getElementById("total-price");
-  const productPrice = 450;
-  let total = 0;
-
-  addToCartButton.addEventListener("click", () => {
-    let currentCount = parseInt(cartCountElement.textContent);
-    cartCountElement.textContent = currentCount + 1;
-
-    const cartItem = document.createElement("div");
-    cartItem.classList.add("cart-item");
-
-    const cartItemImage = document.createElement("img");
-    cartItemImage.src = productImageSrc;
-
-    const minusButton = document.createElement("button");
-    minusButton.textContent = "-";
-    minusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      if (count > 0) {
-        itemCount.textContent = count - 1;
-        total -= productPrice;
-        updateTotalPrice();
-      }
-    });
-
-    const itemCount = document.createElement("span");
-    itemCount.id = "itemCountI";
-    itemCount.textContent = "1";
-
-    const plusButton = document.createElement("button");
-    plusButton.textContent = "+";
-    plusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      itemCount.textContent = count + 1;
-      total += productPrice;
-      updateTotalPrice();
-    });
-
-    const basePrice = document.createElement("span");
-    total = productPrice;
-    basePrice.textContent = `(Rs. ${total} )`;
-    basePrice.id = "basePrice9";
-
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-    removeButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      cartItemsElement.removeChild(cartItem);
-      let currentCount = parseInt(cartCountElement.textContent);
-      cartCountElement.textContent = currentCount - 1;
-      total -= count * productPrice;
-      updateTotalPrice();
-      addToCartButton.textContent = "Add to Cart";
-      addToCartButton.disabled = false;
-    });
-
-    cartItem.appendChild(cartItemImage);
-    cartItem.appendChild(minusButton);
-    cartItem.appendChild(itemCount);
-    cartItem.appendChild(plusButton);
-    cartItem.appendChild(basePrice);
-    cartItem.appendChild(removeButton);
-
-    cartItemsElement.appendChild(cartItem);
-    total = productPrice;
-    updateTotalPrice();
-    addToCartButton.textContent = "Task Added";
-    addToCartButton.disabled = true;
-  });
-  function updateTotalPrice() {
-    totalPriceElement.textContent = `Total: Rs. ${total}`;
-  }
-}); //#
-//#navy
-document.addEventListener("DOMContentLoaded", () => {
-  const addToCartButton = document.getElementById("chickenKeemsDP");
-  const cartCountElement = document.getElementById("cart-count");
-  const cartItemsElement = document.getElementById("cart-items");
-  const productImageSrc = document.getElementById("chickenKeemsDPimgID").src;
-  const totalPriceElement = document.getElementById("total-price");
-  const productPrice = 450;
-  let total = 0;
-
-  addToCartButton.addEventListener("click", () => {
-    let currentCount = parseInt(cartCountElement.textContent);
-    cartCountElement.textContent = currentCount + 1;
-
-    const cartItem = document.createElement("div");
-    cartItem.classList.add("cart-item");
-
-    const cartItemImage = document.createElement("img");
-    cartItemImage.src = productImageSrc;
-
-    const minusButton = document.createElement("button");
-    minusButton.textContent = "-";
-    minusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      if (count > 0) {
-        itemCount.textContent = count - 1;
-        total -= productPrice;
-        updateTotalPrice();
-      }
-    });
-
-    const itemCount = document.createElement("span");
-    itemCount.id = "itemCountJ";
-    itemCount.textContent = "1";
-
-    const plusButton = document.createElement("button");
-    plusButton.textContent = "+";
-    plusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      itemCount.textContent = count + 1;
-      total += productPrice;
-      updateTotalPrice();
-    });
-
-    const basePrice = document.createElement("span");
-    total = productPrice;
-    basePrice.textContent = `(Rs. ${total} )`;
-    basePrice.id = "basePrice10";
-
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-    removeButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      cartItemsElement.removeChild(cartItem);
-      let currentCount = parseInt(cartCountElement.textContent);
-      cartCountElement.textContent = currentCount - 1;
-      total -= count * productPrice;
-      updateTotalPrice();
-      addToCartButton.textContent = "Add to Cart";
-      addToCartButton.disabled = false;
-    });
-
-    cartItem.appendChild(cartItemImage);
-    cartItem.appendChild(minusButton);
-    cartItem.appendChild(itemCount);
-    cartItem.appendChild(plusButton);
-    cartItem.appendChild(basePrice);
-    cartItem.appendChild(removeButton);
-
-    cartItemsElement.appendChild(cartItem);
-    total = productPrice;
-    updateTotalPrice();
-    addToCartButton.textContent = "Task Added";
-    addToCartButton.disabled = true;
-  });
-  function updateTotalPrice() {
-    totalPriceElement.textContent = `Total: Rs. ${total}`;
-  }
-}); //#
-//#green
-document.addEventListener("DOMContentLoaded", () => {
-  const addToCartButton = document.getElementById("threeCheeseMeltDP");
-  const cartCountElement = document.getElementById("cart-count");
-  const cartItemsElement = document.getElementById("cart-items");
-  const productImageSrc = document.getElementById("threeCheeseMeltDPimgID").src;
-  const totalPriceElement = document.getElementById("total-price");
-  const productPrice = 450;
-  let total = 0;
-
-  addToCartButton.addEventListener("click", () => {
-    let currentCount = parseInt(cartCountElement.textContent);
-    cartCountElement.textContent = currentCount + 1;
-
-    const cartItem = document.createElement("div");
-    cartItem.classList.add("cart-item");
-
-    const cartItemImage = document.createElement("img");
-    cartItemImage.src = productImageSrc;
-
-    const minusButton = document.createElement("button");
-    minusButton.textContent = "-";
-    minusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      if (count > 0) {
-        itemCount.textContent = count - 1;
-        total -= productPrice;
-        updateTotalPrice();
-      }
-    });
-
-    const itemCount = document.createElement("span");
-    itemCount.id = "itemCountK";
-    itemCount.textContent = "1";
-
-    const plusButton = document.createElement("button");
-    plusButton.textContent = "+";
-    plusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      itemCount.textContent = count + 1;
-      total += productPrice;
-      updateTotalPrice();
-    });
-
-    const basePrice = document.createElement("span");
-    total = productPrice;
-    basePrice.textContent = `(Rs. ${total} )`;
-    basePrice.id = "basePrice11";
-
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-    removeButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      cartItemsElement.removeChild(cartItem);
-      let currentCount = parseInt(cartCountElement.textContent);
-      cartCountElement.textContent = currentCount - 1;
-      total -= count * productPrice;
-      updateTotalPrice();
-      addToCartButton.textContent = "Add to Cart";
-      addToCartButton.disabled = false;
-    });
-
-    cartItem.appendChild(cartItemImage);
-    cartItem.appendChild(minusButton);
-    cartItem.appendChild(itemCount);
-    cartItem.appendChild(plusButton);
-    cartItem.appendChild(basePrice);
-    cartItem.appendChild(removeButton);
-
-    cartItemsElement.appendChild(cartItem);
-    total = productPrice;
-    updateTotalPrice();
-    addToCartButton.textContent = "Task Added";
-    addToCartButton.disabled = true;
-  });
-  function updateTotalPrice() {
-    totalPriceElement.textContent = `Total: Rs. ${total}`;
-  }
-}); //#
-//#gold
-document.addEventListener("DOMContentLoaded", () => {
-  const addToCartButton = document.getElementById("delhiTikkiDP");
-  const cartCountElement = document.getElementById("cart-count");
-  const cartItemsElement = document.getElementById("cart-items");
-  const productImageSrc = document.getElementById("delhiTikkiDPimgID").src;
-  const totalPriceElement = document.getElementById("total-price");
-  const productPrice = 450;
-  let total = 0;
-
-  addToCartButton.addEventListener("click", () => {
-    let currentCount = parseInt(cartCountElement.textContent);
-    cartCountElement.textContent = currentCount + 1;
-
-    const cartItem = document.createElement("div");
-    cartItem.classList.add("cart-item");
-
-    const cartItemImage = document.createElement("img");
-    cartItemImage.src = productImageSrc;
-
-    const minusButton = document.createElement("button");
-    minusButton.textContent = "-";
-    minusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      if (count > 0) {
-        itemCount.textContent = count - 1;
-        total -= productPrice;
-        updateTotalPrice();
-      }
-    });
-
-    const itemCount = document.createElement("span");
-    itemCount.id = "itemCountL";
-    itemCount.textContent = "1";
-
-    const plusButton = document.createElement("button");
-    plusButton.textContent = "+";
-    plusButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      itemCount.textContent = count + 1;
-      total += productPrice;
-      updateTotalPrice();
-    });
-
-    const basePrice = document.createElement("span");
-    total = productPrice;
-    basePrice.textContent = `(Rs. ${total} )`;
-    basePrice.id = "basePrice12";
-
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-    removeButton.addEventListener("click", () => {
-      const itemCount = cartItem.querySelector("span");
-      let count = parseInt(itemCount.textContent);
-      cartItemsElement.removeChild(cartItem);
-      let currentCount = parseInt(cartCountElement.textContent);
-      cartCountElement.textContent = currentCount - 1;
-      total -= count * productPrice;
-      updateTotalPrice();
-      addToCartButton.textContent = "Add to Cart";
-      addToCartButton.disabled = false;
-    });
-
-    cartItem.appendChild(cartItemImage);
-    cartItem.appendChild(minusButton);
-    cartItem.appendChild(itemCount);
-    cartItem.appendChild(plusButton);
-    cartItem.appendChild(basePrice);
-    cartItem.appendChild(removeButton);
-
-    cartItemsElement.appendChild(cartItem);
-    total = productPrice;
-    updateTotalPrice();
-    addToCartButton.textContent = "Task Added";
-    addToCartButton.disabled = true;
-  });
-  function updateTotalPrice() {
-    totalPriceElement.textContent = `Total: Rs. ${total}`;
-  }
-}); //#
+  billHTML += `<h3>${document.getElementById("grand-total").textContent}</h3>`;
+  billSummaryElement.innerHTML = billHTML;
+}
