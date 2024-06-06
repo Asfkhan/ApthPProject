@@ -107,7 +107,6 @@ html {
   }
 
   .title2 {
-    font-size: 2px;
     text-align: center;
     color: black;
   }
@@ -117,7 +116,7 @@ html {
 .homevideo{text-align: center;}
 video {
   border-radius: 15px;
-  width: 25%;
+  width: 50%;
   height: auto;
   position: sticky;
 }
