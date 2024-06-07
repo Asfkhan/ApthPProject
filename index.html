@@ -14,14 +14,14 @@
 
 	<header>
 		<nav class="head">
-			<ul>
+			<ul class="tab-list">
 				<img src="Images\subwayheader.png">
-				<li> <button ng-click="selectTab(1)">Home</button></li>
-				<li> <button ng-click="selectTab(2)">Menu</button></li>
-				<li> <button ng-click="selectTab(3)">AboutUs</button></li>
-				<li> <button ng-click="selectTab(4)" class="TButton"> TALK
+				<li ng-class="{active: selectedTab === 1}"> <button  ng-click="selectTab(1)">Home</button></li>
+				<li  ng-class="{active: selectedTab === 2}"> <button ng-click="selectTab(2)">Menu</button></li>
+				<li ng-class="{active: selectedTab === 3}"> <button  ng-click="selectTab(3)">AboutUs</button></li>
+				<li ng-class="{active: selectedTab === 4}"> <button  ng-click="selectTab(4)" class="TButton"> TALK
 						TO US</button></li>
-				<li><button ng-click="selectTab(5)" id="mycart" onmouseover="glow()" onmouseout="stopglow()">My Cart
+				<li ng-class="{active: selectedTab === 5}"><button  ng-click="selectTab(5)" id="mycart" onmouseover="glow()" onmouseout="stopglow()">My Cart
 						(<span id="cart-count">0</span>)</button></li>
 			</ul>
 		</nav>
