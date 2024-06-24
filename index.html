@@ -358,7 +358,7 @@
 	<div class="tab-content" ng-class="{ active: selectedTab === 4 }">
 		<div class="main">
 			<div class="content">
-				<form>
+				<form action="templates\success.html" method="GET">
 					<h2 id="notice">Talk to us!</h2><br>
 					<h3>Please share with us below details:</h3><br>
 					<h2>Mobile number:<span class="imp">*<span></h2>
@@ -370,8 +370,8 @@
 					<h2>Do you have your last Order Details:<span class="imp">*</span></h2>
 					<input type="radio" type="radio" name="ans">Yes
 					<input type="radio" type="radio" name="ans">No
-					<h2>Attachment, if any</h2>
-					<input type="submit" value="Click me" class="register">
+					<h2>Attachment, if any</h2><br><input type="file" id="myfile" name="myfile"><br>
+					<input type="submit" value="Submit" class="register">
 					<div class="footer">
 						<p>All rights reserved. HealthyLo is a Registered Trademark of HealthyLo IP LLC. ©2024 Healthylo
 							IP LLC., and is
@@ -395,7 +395,7 @@
 	</div>
 	<div class="homevideo">
 		<video controls autoplay muted loop>
-			<source src="videos/subwayadvt.mp4" type="video/mp4">
+			<source src="videos\subwayadvt.mp4" type="video/mp4">
 			Your Browser Does not Support the Tag.
 		</video>
 	</div>
